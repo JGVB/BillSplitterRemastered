@@ -1,0 +1,605 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		700C06B819102CB600831022 /* FromItemSelectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 700C06B719102CB600831022 /* FromItemSelectTableViewCell.m */; };
+		7042F85619145047002B8606 /* Calculations.m in Sources */ = {isa = PBXBuildFile; fileRef = 7042F85519145047002B8606 /* Calculations.m */; };
+		7042F859191463A3002B8606 /* PayerTotalObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 7042F858191463A3002B8606 /* PayerTotalObj.m */; };
+		7067FD2019182816008AF412 /* PayerDetailsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7067FD1F19182816008AF412 /* PayerDetailsTableViewCell.m */; };
+		70AE157418AD42860061C096 /* Payer.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AE157318AD42860061C096 /* Payer.m */; };
+		70AE157718AD42900061C096 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AE157618AD42900061C096 /* Item.m */; };
+		70AE157A18AD5DC60061C096 /* ErrorChecking.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AE157918AD5DC60061C096 /* ErrorChecking.m */; };
+		70B8B52F18AC050B0043395D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B8B52E18AC050B0043395D /* Foundation.framework */; };
+		70B8B53118AC050B0043395D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B8B53018AC050B0043395D /* CoreGraphics.framework */; };
+		70B8B53318AC050B0043395D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B8B53218AC050B0043395D /* UIKit.framework */; };
+		70B8B53918AC050C0043395D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 70B8B53718AC050C0043395D /* InfoPlist.strings */; };
+		70B8B53B18AC050C0043395D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B8B53A18AC050C0043395D /* main.m */; };
+		70B8B53F18AC050C0043395D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B8B53E18AC050C0043395D /* AppDelegate.m */; };
+		70B8B54218AC050C0043395D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70B8B54018AC050C0043395D /* Main.storyboard */; };
+		70B8B54718AC050C0043395D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70B8B54618AC050C0043395D /* Images.xcassets */; };
+		70B8B54E18AC050C0043395D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B8B54D18AC050C0043395D /* XCTest.framework */; };
+		70B8B54F18AC050C0043395D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B8B52E18AC050B0043395D /* Foundation.framework */; };
+		70B8B55018AC050C0043395D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B8B53218AC050B0043395D /* UIKit.framework */; };
+		70B8B55818AC050C0043395D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 70B8B55618AC050C0043395D /* InfoPlist.strings */; };
+		70B8B55A18AC050C0043395D /* BillSplitterRemasteredTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B8B55918AC050C0043395D /* BillSplitterRemasteredTests.m */; };
+		70B8B56618AC12C50043395D /* PayersTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B8B56518AC12C50043395D /* PayersTabViewController.m */; };
+		70B8B56918AC12D00043395D /* ItemsTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B8B56818AC12D00043395D /* ItemsTabViewController.m */; };
+		70B8B56D18AC12E50043395D /* ExtrasTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B8B56C18AC12E50043395D /* ExtrasTabViewController.m */; };
+		70B8B57818AC36460043395D /* ItemSelectTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B8B57718AC36460043395D /* ItemSelectTableCell.m */; };
+		70B8B57E18AC48890043395D /* SelectPayersItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B8B57D18AC48890043395D /* SelectPayersItemsViewController.m */; };
+		70B8B58118AC48970043395D /* SelectItemsPayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B8B58018AC48970043395D /* SelectItemsPayersViewController.m */; };
+		70B8B58418AC4DBA0043395D /* TotalsDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B8B58318AC4DBA0043395D /* TotalsDisplayViewController.m */; };
+		70B8B58718AC4DCC0043395D /* PayersDetailsDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B8B58618AC4DCC0043395D /* PayersDetailsDisplayViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		70B8B55118AC050C0043395D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 70B8B52318AC050A0043395D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 70B8B52A18AC050B0043395D;
+			remoteInfo = BillSplitterRemastered;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		700C06B619102CB600831022 /* FromItemSelectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FromItemSelectTableViewCell.h; sourceTree = "<group>"; };
+		700C06B719102CB600831022 /* FromItemSelectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FromItemSelectTableViewCell.m; sourceTree = "<group>"; };
+		7042F85419145047002B8606 /* Calculations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calculations.h; sourceTree = "<group>"; };
+		7042F85519145047002B8606 /* Calculations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Calculations.m; sourceTree = "<group>"; };
+		7042F857191463A3002B8606 /* PayerTotalObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayerTotalObj.h; sourceTree = "<group>"; };
+		7042F858191463A3002B8606 /* PayerTotalObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayerTotalObj.m; sourceTree = "<group>"; };
+		7067FD1E19182816008AF412 /* PayerDetailsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayerDetailsTableViewCell.h; sourceTree = "<group>"; };
+		7067FD1F19182816008AF412 /* PayerDetailsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayerDetailsTableViewCell.m; sourceTree = "<group>"; };
+		70AE157218AD42860061C096 /* Payer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Payer.h; sourceTree = "<group>"; };
+		70AE157318AD42860061C096 /* Payer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Payer.m; sourceTree = "<group>"; };
+		70AE157518AD42900061C096 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		70AE157618AD42900061C096 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		70AE157818AD5DC60061C096 /* ErrorChecking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorChecking.h; sourceTree = "<group>"; };
+		70AE157918AD5DC60061C096 /* ErrorChecking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorChecking.m; sourceTree = "<group>"; };
+		70B8B52B18AC050B0043395D /* BillSplitterRemastered.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BillSplitterRemastered.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		70B8B52E18AC050B0043395D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		70B8B53018AC050B0043395D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		70B8B53218AC050B0043395D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		70B8B53618AC050C0043395D /* BillSplitterRemastered-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BillSplitterRemastered-Info.plist"; sourceTree = "<group>"; };
+		70B8B53818AC050C0043395D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		70B8B53A18AC050C0043395D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		70B8B53C18AC050C0043395D /* BillSplitterRemastered-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BillSplitterRemastered-Prefix.pch"; sourceTree = "<group>"; };
+		70B8B53D18AC050C0043395D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		70B8B53E18AC050C0043395D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		70B8B54118AC050C0043395D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		70B8B54618AC050C0043395D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		70B8B54C18AC050C0043395D /* BillSplitterRemasteredTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BillSplitterRemasteredTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		70B8B54D18AC050C0043395D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		70B8B55518AC050C0043395D /* BillSplitterRemasteredTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BillSplitterRemasteredTests-Info.plist"; sourceTree = "<group>"; };
+		70B8B55718AC050C0043395D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		70B8B55918AC050C0043395D /* BillSplitterRemasteredTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BillSplitterRemasteredTests.m; sourceTree = "<group>"; };
+		70B8B56418AC12C50043395D /* PayersTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayersTabViewController.h; sourceTree = "<group>"; };
+		70B8B56518AC12C50043395D /* PayersTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayersTabViewController.m; sourceTree = "<group>"; };
+		70B8B56718AC12D00043395D /* ItemsTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsTabViewController.h; sourceTree = "<group>"; };
+		70B8B56818AC12D00043395D /* ItemsTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsTabViewController.m; sourceTree = "<group>"; };
+		70B8B56B18AC12E50043395D /* ExtrasTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtrasTabViewController.h; sourceTree = "<group>"; };
+		70B8B56C18AC12E50043395D /* ExtrasTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtrasTabViewController.m; sourceTree = "<group>"; };
+		70B8B57618AC36460043395D /* ItemSelectTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemSelectTableCell.h; sourceTree = "<group>"; };
+		70B8B57718AC36460043395D /* ItemSelectTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemSelectTableCell.m; sourceTree = "<group>"; };
+		70B8B57C18AC48890043395D /* SelectPayersItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectPayersItemsViewController.h; sourceTree = "<group>"; };
+		70B8B57D18AC48890043395D /* SelectPayersItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectPayersItemsViewController.m; sourceTree = "<group>"; };
+		70B8B57F18AC48970043395D /* SelectItemsPayersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectItemsPayersViewController.h; sourceTree = "<group>"; };
+		70B8B58018AC48970043395D /* SelectItemsPayersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectItemsPayersViewController.m; sourceTree = "<group>"; };
+		70B8B58218AC4DBA0043395D /* TotalsDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TotalsDisplayViewController.h; sourceTree = "<group>"; };
+		70B8B58318AC4DBA0043395D /* TotalsDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TotalsDisplayViewController.m; sourceTree = "<group>"; };
+		70B8B58518AC4DCC0043395D /* PayersDetailsDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayersDetailsDisplayViewController.h; sourceTree = "<group>"; };
+		70B8B58618AC4DCC0043395D /* PayersDetailsDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayersDetailsDisplayViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		70B8B52818AC050B0043395D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70B8B53118AC050B0043395D /* CoreGraphics.framework in Frameworks */,
+				70B8B53318AC050B0043395D /* UIKit.framework in Frameworks */,
+				70B8B52F18AC050B0043395D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		70B8B54918AC050C0043395D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70B8B54E18AC050C0043395D /* XCTest.framework in Frameworks */,
+				70B8B55018AC050C0043395D /* UIKit.framework in Frameworks */,
+				70B8B54F18AC050C0043395D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		70B8B52218AC050A0043395D = {
+			isa = PBXGroup;
+			children = (
+				70B8B53418AC050B0043395D /* BillSplitterRemastered */,
+				70B8B55318AC050C0043395D /* BillSplitterRemasteredTests */,
+				70B8B52D18AC050B0043395D /* Frameworks */,
+				70B8B52C18AC050B0043395D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		70B8B52C18AC050B0043395D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				70B8B52B18AC050B0043395D /* BillSplitterRemastered.app */,
+				70B8B54C18AC050C0043395D /* BillSplitterRemasteredTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		70B8B52D18AC050B0043395D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				70B8B52E18AC050B0043395D /* Foundation.framework */,
+				70B8B53018AC050B0043395D /* CoreGraphics.framework */,
+				70B8B53218AC050B0043395D /* UIKit.framework */,
+				70B8B54D18AC050C0043395D /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		70B8B53418AC050B0043395D /* BillSplitterRemastered */ = {
+			isa = PBXGroup;
+			children = (
+				70B8B53D18AC050C0043395D /* AppDelegate.h */,
+				70B8B53E18AC050C0043395D /* AppDelegate.m */,
+				70B8B54018AC050C0043395D /* Main.storyboard */,
+				70B8B54618AC050C0043395D /* Images.xcassets */,
+				70B8B56E18AC12FD0043395D /* Calculate Clicked */,
+				70B8B56318AC129E0043395D /* Tabs */,
+				70B8B53518AC050C0043395D /* Supporting Files */,
+			);
+			path = BillSplitterRemastered;
+			sourceTree = "<group>";
+		};
+		70B8B53518AC050C0043395D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				70B8B53618AC050C0043395D /* BillSplitterRemastered-Info.plist */,
+				70B8B53718AC050C0043395D /* InfoPlist.strings */,
+				70B8B53A18AC050C0043395D /* main.m */,
+				70B8B53C18AC050C0043395D /* BillSplitterRemastered-Prefix.pch */,
+				70B8B57518AC36260043395D /* Cells */,
+				70AE157218AD42860061C096 /* Payer.h */,
+				70AE157318AD42860061C096 /* Payer.m */,
+				70AE157518AD42900061C096 /* Item.h */,
+				70AE157618AD42900061C096 /* Item.m */,
+				70AE157818AD5DC60061C096 /* ErrorChecking.h */,
+				70AE157918AD5DC60061C096 /* ErrorChecking.m */,
+				7042F85419145047002B8606 /* Calculations.h */,
+				7042F85519145047002B8606 /* Calculations.m */,
+				7042F857191463A3002B8606 /* PayerTotalObj.h */,
+				7042F858191463A3002B8606 /* PayerTotalObj.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		70B8B55318AC050C0043395D /* BillSplitterRemasteredTests */ = {
+			isa = PBXGroup;
+			children = (
+				70B8B55918AC050C0043395D /* BillSplitterRemasteredTests.m */,
+				70B8B55418AC050C0043395D /* Supporting Files */,
+			);
+			path = BillSplitterRemasteredTests;
+			sourceTree = "<group>";
+		};
+		70B8B55418AC050C0043395D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				70B8B55518AC050C0043395D /* BillSplitterRemasteredTests-Info.plist */,
+				70B8B55618AC050C0043395D /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		70B8B56318AC129E0043395D /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				70B8B57918AC39270043395D /* Payers */,
+				70B8B57A18AC39300043395D /* Items */,
+				70B8B57B18AC39390043395D /* Extras */,
+			);
+			name = Tabs;
+			sourceTree = "<group>";
+		};
+		70B8B56E18AC12FD0043395D /* Calculate Clicked */ = {
+			isa = PBXGroup;
+			children = (
+				70B8B58218AC4DBA0043395D /* TotalsDisplayViewController.h */,
+				70B8B58318AC4DBA0043395D /* TotalsDisplayViewController.m */,
+				70B8B58518AC4DCC0043395D /* PayersDetailsDisplayViewController.h */,
+				70B8B58618AC4DCC0043395D /* PayersDetailsDisplayViewController.m */,
+			);
+			name = "Calculate Clicked";
+			sourceTree = "<group>";
+		};
+		70B8B57518AC36260043395D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				70B8B57618AC36460043395D /* ItemSelectTableCell.h */,
+				70B8B57718AC36460043395D /* ItemSelectTableCell.m */,
+				700C06B619102CB600831022 /* FromItemSelectTableViewCell.h */,
+				700C06B719102CB600831022 /* FromItemSelectTableViewCell.m */,
+				7067FD1E19182816008AF412 /* PayerDetailsTableViewCell.h */,
+				7067FD1F19182816008AF412 /* PayerDetailsTableViewCell.m */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		70B8B57918AC39270043395D /* Payers */ = {
+			isa = PBXGroup;
+			children = (
+				70B8B56418AC12C50043395D /* PayersTabViewController.h */,
+				70B8B56518AC12C50043395D /* PayersTabViewController.m */,
+				70B8B57C18AC48890043395D /* SelectPayersItemsViewController.h */,
+				70B8B57D18AC48890043395D /* SelectPayersItemsViewController.m */,
+			);
+			name = Payers;
+			sourceTree = "<group>";
+		};
+		70B8B57A18AC39300043395D /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				70B8B56718AC12D00043395D /* ItemsTabViewController.h */,
+				70B8B56818AC12D00043395D /* ItemsTabViewController.m */,
+				70B8B57F18AC48970043395D /* SelectItemsPayersViewController.h */,
+				70B8B58018AC48970043395D /* SelectItemsPayersViewController.m */,
+			);
+			name = Items;
+			sourceTree = "<group>";
+		};
+		70B8B57B18AC39390043395D /* Extras */ = {
+			isa = PBXGroup;
+			children = (
+				70B8B56B18AC12E50043395D /* ExtrasTabViewController.h */,
+				70B8B56C18AC12E50043395D /* ExtrasTabViewController.m */,
+			);
+			name = Extras;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		70B8B52A18AC050B0043395D /* BillSplitterRemastered */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 70B8B55D18AC050C0043395D /* Build configuration list for PBXNativeTarget "BillSplitterRemastered" */;
+			buildPhases = (
+				70B8B52718AC050B0043395D /* Sources */,
+				70B8B52818AC050B0043395D /* Frameworks */,
+				70B8B52918AC050B0043395D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BillSplitterRemastered;
+			productName = BillSplitterRemastered;
+			productReference = 70B8B52B18AC050B0043395D /* BillSplitterRemastered.app */;
+			productType = "com.apple.product-type.application";
+		};
+		70B8B54B18AC050C0043395D /* BillSplitterRemasteredTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 70B8B56018AC050C0043395D /* Build configuration list for PBXNativeTarget "BillSplitterRemasteredTests" */;
+			buildPhases = (
+				70B8B54818AC050C0043395D /* Sources */,
+				70B8B54918AC050C0043395D /* Frameworks */,
+				70B8B54A18AC050C0043395D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				70B8B55218AC050C0043395D /* PBXTargetDependency */,
+			);
+			name = BillSplitterRemasteredTests;
+			productName = BillSplitterRemasteredTests;
+			productReference = 70B8B54C18AC050C0043395D /* BillSplitterRemasteredTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		70B8B52318AC050A0043395D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = noOrg;
+				TargetAttributes = {
+					70B8B54B18AC050C0043395D = {
+						TestTargetID = 70B8B52A18AC050B0043395D;
+					};
+				};
+			};
+			buildConfigurationList = 70B8B52618AC050A0043395D /* Build configuration list for PBXProject "BillSplitterRemastered" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 70B8B52218AC050A0043395D;
+			productRefGroup = 70B8B52C18AC050B0043395D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				70B8B52A18AC050B0043395D /* BillSplitterRemastered */,
+				70B8B54B18AC050C0043395D /* BillSplitterRemasteredTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		70B8B52918AC050B0043395D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70B8B54718AC050C0043395D /* Images.xcassets in Resources */,
+				70B8B53918AC050C0043395D /* InfoPlist.strings in Resources */,
+				70B8B54218AC050C0043395D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		70B8B54A18AC050C0043395D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70B8B55818AC050C0043395D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		70B8B52718AC050B0043395D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70AE157A18AD5DC60061C096 /* ErrorChecking.m in Sources */,
+				70AE157718AD42900061C096 /* Item.m in Sources */,
+				700C06B819102CB600831022 /* FromItemSelectTableViewCell.m in Sources */,
+				7042F85619145047002B8606 /* Calculations.m in Sources */,
+				70B8B53F18AC050C0043395D /* AppDelegate.m in Sources */,
+				70B8B53B18AC050C0043395D /* main.m in Sources */,
+				70AE157418AD42860061C096 /* Payer.m in Sources */,
+				70B8B58718AC4DCC0043395D /* PayersDetailsDisplayViewController.m in Sources */,
+				70B8B58418AC4DBA0043395D /* TotalsDisplayViewController.m in Sources */,
+				70B8B56618AC12C50043395D /* PayersTabViewController.m in Sources */,
+				7042F859191463A3002B8606 /* PayerTotalObj.m in Sources */,
+				70B8B58118AC48970043395D /* SelectItemsPayersViewController.m in Sources */,
+				70B8B56D18AC12E50043395D /* ExtrasTabViewController.m in Sources */,
+				7067FD2019182816008AF412 /* PayerDetailsTableViewCell.m in Sources */,
+				70B8B56918AC12D00043395D /* ItemsTabViewController.m in Sources */,
+				70B8B57E18AC48890043395D /* SelectPayersItemsViewController.m in Sources */,
+				70B8B57818AC36460043395D /* ItemSelectTableCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		70B8B54818AC050C0043395D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70B8B55A18AC050C0043395D /* BillSplitterRemasteredTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		70B8B55218AC050C0043395D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 70B8B52A18AC050B0043395D /* BillSplitterRemastered */;
+			targetProxy = 70B8B55118AC050C0043395D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		70B8B53718AC050C0043395D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				70B8B53818AC050C0043395D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		70B8B54018AC050C0043395D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				70B8B54118AC050C0043395D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		70B8B55618AC050C0043395D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				70B8B55718AC050C0043395D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		70B8B55B18AC050C0043395D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		70B8B55C18AC050C0043395D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		70B8B55E18AC050C0043395D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BillSplitterRemastered/BillSplitterRemastered-Prefix.pch";
+				INFOPLIST_FILE = "BillSplitterRemastered/BillSplitterRemastered-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		70B8B55F18AC050C0043395D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BillSplitterRemastered/BillSplitterRemastered-Prefix.pch";
+				INFOPLIST_FILE = "BillSplitterRemastered/BillSplitterRemastered-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		70B8B56118AC050C0043395D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BillSplitterRemastered.app/BillSplitterRemastered";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BillSplitterRemastered/BillSplitterRemastered-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "BillSplitterRemasteredTests/BillSplitterRemasteredTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		70B8B56218AC050C0043395D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BillSplitterRemastered.app/BillSplitterRemastered";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BillSplitterRemastered/BillSplitterRemastered-Prefix.pch";
+				INFOPLIST_FILE = "BillSplitterRemasteredTests/BillSplitterRemasteredTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		70B8B52618AC050A0043395D /* Build configuration list for PBXProject "BillSplitterRemastered" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				70B8B55B18AC050C0043395D /* Debug */,
+				70B8B55C18AC050C0043395D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		70B8B55D18AC050C0043395D /* Build configuration list for PBXNativeTarget "BillSplitterRemastered" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				70B8B55E18AC050C0043395D /* Debug */,
+				70B8B55F18AC050C0043395D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		70B8B56018AC050C0043395D /* Build configuration list for PBXNativeTarget "BillSplitterRemasteredTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				70B8B56118AC050C0043395D /* Debug */,
+				70B8B56218AC050C0043395D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 70B8B52318AC050A0043395D /* Project object */;
+}
