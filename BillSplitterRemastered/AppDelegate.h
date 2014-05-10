@@ -28,7 +28,6 @@
 //Make it so when you select an item with a payer already(split/shared), show..quantity..1, or split with??
 //need name property in payer total object? - re think design. 
 //Make display good - auto layout - struts..etc
-//test github
 
 #import <UIKit/UIKit.h>
 
