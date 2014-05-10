@@ -132,12 +132,12 @@
         [self.itemDataSource addObject:newItem];
         [self.tableView reloadData];
         [self dismissKeyboard];
+        //Clear text fields
+        [self.tfItemCostInput setText:@""];
+        [self.tfItemNameInput setText:@""];
     } else { //Error with input entered
         [ErrorChecking showErrorMessage:errors];
     }
-    //Clear text fields
-    [self.tfItemCostInput setText:@""];
-    [self.tfItemNameInput setText:@""];
 }
 
 /**
@@ -249,6 +249,17 @@
 **/
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     return [textField resignFirstResponder];
+}
+
+/**
+ * textFieldDidBeginEditing: Tells the delegate that editing began for the specified text field. Highlight text when text field is selected in order to make it easier to edit
+ **/
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    UITextPosition *start = [textField beginningOfDocument];
+    UITextPosition *end   = [textField endOfDocument];
+    UITextRange *range = [textField textRangeFromPosition:start toPosition:end];
+    [textField setSelectedTextRange:range];
 }
 
 

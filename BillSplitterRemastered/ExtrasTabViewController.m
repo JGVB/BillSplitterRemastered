@@ -200,20 +200,30 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *theCellClicked = [self.tableView cellForRowAtIndexPath:indexPath]; //Get which cell was clicked
-    if (theCellClicked == self.cellTipByPercent) {
-        if(!self.cellTipByPercent.accessoryType == UITableViewCellAccessoryCheckmark) {
+
+    if ([theCellClicked.reuseIdentifier isEqualToString:@"tip_by_percent_reuse"]) {
+        if(theCellClicked.accessoryType != UITableViewCellAccessoryCheckmark) {
             self.lTipByQuestionMake.text = @"Tip (%)";
             [self.extrasDataSource setObject:@"tip_by_percent" forKey:@"tipByWhat"];
-            self.cellTipByPercent.accessoryType = UITableViewCellAccessoryCheckmark;
+            theCellClicked.accessoryType = UITableViewCellAccessoryCheckmark;
             self.cellTipByValue.accessoryType = UITableViewCellAccessoryNone;
         }
-    } else if (theCellClicked == self.cellTipByValue){
-        if(!theCellClicked.accessoryType == UITableViewCellAccessoryCheckmark){
+    } else if ([theCellClicked.reuseIdentifier isEqualToString:@"tip_by_value_reuse"]){
+        if(theCellClicked.accessoryType != UITableViewCellAccessoryCheckmark){
             self.lTipByQuestionMake.text = @"Tip ($ Amount)";
             [self.extrasDataSource setObject:@"tip_by_amount" forKey:@"tipByWhat"];
-            self.cellTipByValue.accessoryType = UITableViewCellAccessoryCheckmark;
+            theCellClicked.accessoryType = UITableViewCellAccessoryCheckmark;
             self.cellTipByPercent.accessoryType = UITableViewCellAccessoryNone;
         }
+    } else if([theCellClicked.reuseIdentifier isEqualToString:@"split_bill_equally_reuse"]){
+        if(theCellClicked.accessoryType == UITableViewCellAccessoryNone){//User wants the bill split equally, set checkmark, set global?
+            theCellClicked.accessoryType = UITableViewCellAccessoryCheckmark;
+            todo  set global to signify split equally
+            
+        } else { //if the user switches to not split the bill equally, set checkmark non, set global to signify split unevenly.
+            theCellClicked.accessoryType = UITableViewCellAccessoryNone;
+        }
+    
     }
 }
 

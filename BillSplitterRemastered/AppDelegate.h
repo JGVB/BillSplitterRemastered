@@ -19,7 +19,6 @@
 //add from contacts payers
 //default tips?
 //Change calculate button to split?
-//split type section? - split bill equally/unequally
 //local currencies
 //locales?
 //section to just be a tip calculator?
@@ -28,6 +27,9 @@
 //Make it so when you select an item with a payer already(split/shared), show..quantity..1, or split with??
 //need name property in payer total object? - re think design. 
 //Make display good - auto layout - struts..etc
+
+//split type section? - split bill equally/unequally
+
 
 #import <UIKit/UIKit.h>
 
