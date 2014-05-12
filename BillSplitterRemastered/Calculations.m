@@ -24,6 +24,16 @@
     NSMutableArray *payerTotalObjects = [returnedCalc objectAtIndex:0];
     double subGrandTotal = [[returnedCalc objectAtIndex:1] doubleValue];
     
+    //Make everyone's subtotal the same to prepare to send to extras calculation
+    //Get all item prices, add them up and divide by the nuber of payers
+    NSInteger numberOfPayer = [payersIn count];
+    double itemsCosts = 0;
+    for(Item *item in itemsIn){ //Add up item prices
+        itemsCosts += item.cost;
+    }
+    
+    //Add extras
+    
     //WTF   do even split calculations
     
     return [[NSMutableArray alloc] init];
@@ -37,21 +47,19 @@
 {
     //Calculate the raw totals from payer's items. 0 has the objects, 1 has the subgrandtotal
     NSMutableArray *returnedCalc = [self calculatePreExtrasSubTotal:payersIn andItems:itemsIn];
-    NSMutableArray *payerTotalObjects = [returnedCalc objectAtIndex:0];
-    double subGrandTotal = [[returnedCalc objectAtIndex:1] doubleValue];
     
-    //Add extras
-    payerTotalObjects = [self addExtras:payerTotalObjects withExtras:extrasIn andSubGrandTotal:(double)subGrandTotal];
+    //Add extras;  index 0 has updated PTOs, index 1 has subGrandTotal
+    NSMutableArray *payerTotalObjectsAndGrandTotal = [self addExtras:[returnedCalc objectAtIndex:0] withExtras:extrasIn andSubGrandTotal:[[returnedCalc objectAtIndex:1] doubleValue]];
     
     //Go through and assign pto's to payers to more easily associate later
-    for(PayerTotalObj *ptoOb in [payerTotalObjects objectAtIndex:0]){
+    for(PayerTotalObj *ptoOb in [payerTotalObjectsAndGrandTotal objectAtIndex:0]){
         for(Payer *payerObj in payersIn){
             if([payerObj.name isEqualToString:ptoOb.name]){
                 payerObj.payerObjectInfo = ptoOb;
             }
         }
     }
-    NSMutableArray *newReturnPayerObjects = [[NSMutableArray alloc] initWithObjects:payersIn, [payerTotalObjects objectAtIndex:1], nil];
+    NSMutableArray *newReturnPayerObjects = [[NSMutableArray alloc] initWithObjects:payersIn, [payerTotalObjectsAndGrandTotal objectAtIndex:1], nil];
     
     return newReturnPayerObjects;
 }

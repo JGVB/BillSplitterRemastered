@@ -92,7 +92,7 @@
         case 0: //List of payers section
             sectionName = @"";
             break;
-        case 1: //Grand Total Section
+        case 1: //Grand Total Section, show divider if a space
             sectionName = @" ";
             break;
         default: //else
