@@ -60,7 +60,7 @@
     if([[self.extrasDataSource objectForKey:@"how_to_split"] isEqualToString:@"Unevenly"]){ //By default, bill is split unevenly
         payerTotalObjects = [Calculations performCalculationsWithPayersSplitUnevenly:self.payersDataSource andItems:self.itemsDataSource andExtras:self.extrasDataSource]; //Returns an array, index 0 - array of updated payer objects after calculations.  index 1 - Grand total to display in tableView
     } else { //user wants the bill split equally between all payers
-       // payerTotalObjects = [Calculations]
+        payerTotalObjects = [Calculations performCalculationsWithPayersSplitEvenly:self.payersDataSource andItems:self.itemsDataSource andExtras:self.extrasDataSource];
     }
     self.payersDataSource = [payerTotalObjects objectAtIndex:0]; //gets the payers.
     double gt =[[payerTotalObjects objectAtIndex:1] doubleValue]; //Get grand total

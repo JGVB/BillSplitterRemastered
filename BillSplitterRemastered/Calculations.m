@@ -16,12 +16,13 @@
 
 //extrasDatasource now has how_to_split in it.  So calculate accordingly.  Don't forget to split it all evenly.(change the tax, tip,...etc for each person.
 
+Evenly not splitting items on payer details.  price is still uneven split
 
+/**
+ * performCalculationsWithPayersSplitEvenly andItems andExtras - Will calculate the even split of the payer's totals!
+ **/
 +(NSMutableArray *)performCalculationsWithPayersSplitEvenly:(NSMutableArray *)payersIn andItems:(NSMutableArray *)itemsIn andExtras:(NSMutableDictionary *)extrasIn
 {
-    //Calculate the raw totals from payer's items. 0 has the objects, 1 has the subgrandtotal
-    NSMutableArray *returnedCalc = [self calculatePreExtrasSubTotal:payersIn andItems:itemsIn];
-
     //Make everyone's subtotal the same to prepare to send to extras calculation
     //Get all item prices, add them up and divide by the nuber of payers
     NSInteger numberOfPayer = [payersIn count];
@@ -30,15 +31,14 @@
         itemsCosts += item.cost;
     }
     double newSubTotals = itemsCosts / numberOfPayer;
-    for(Payer *payer in payersIn){//loop through and add the new subtotal to the pto.
-        
+    for(Payer *payer in payersIn){//loop through and add the new subtotal to the pto. Everyone has the same subtotal.
+        payer.payerObjectInfo.subtotal = newSubTotals;
     }
     
     //Add extras
+    NSNumber *grandTotal = [self addExtraswithExtras:extrasIn andSubGrandTotal:itemsCosts andPayers:payersIn];
     
-    //WTF   do even split calculations
-    
-    return [[NSMutableArray alloc] init];
+    return [[NSMutableArray alloc] initWithObjects:payersIn, grandTotal, nil];
 }
 
 
