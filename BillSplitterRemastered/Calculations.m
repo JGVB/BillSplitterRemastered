@@ -21,15 +21,17 @@
 {
     //Calculate the raw totals from payer's items. 0 has the objects, 1 has the subgrandtotal
     NSMutableArray *returnedCalc = [self calculatePreExtrasSubTotal:payersIn andItems:itemsIn];
-    NSMutableArray *payerTotalObjects = [returnedCalc objectAtIndex:0];
-    double subGrandTotal = [[returnedCalc objectAtIndex:1] doubleValue];
-    
+
     //Make everyone's subtotal the same to prepare to send to extras calculation
     //Get all item prices, add them up and divide by the nuber of payers
     NSInteger numberOfPayer = [payersIn count];
     double itemsCosts = 0;
     for(Item *item in itemsIn){ //Add up item prices
         itemsCosts += item.cost;
+    }
+    double newSubTotals = itemsCosts / numberOfPayer;
+    for(Payer *payer in payersIn){//loop through and add the new subtotal to the pto.
+        
     }
     
     //Add extras
@@ -46,20 +48,12 @@
 +(NSMutableArray *)performCalculationsWithPayersSplitUnevenly:payersIn andItems:itemsIn andExtras:extrasIn
 {
     //Calculate the raw totals from payer's items. 0 has the objects, 1 has the subgrandtotal
-    NSMutableArray *returnedCalc = [self calculatePreExtrasSubTotal:payersIn andItems:itemsIn];
-    
+    NSNumber *subGrandtotal = [self calculatePreExtrasSubTotal:payersIn andItems:itemsIn];
+
     //Add extras;  index 0 has updated PTOs, index 1 has subGrandTotal
-    NSMutableArray *payerTotalObjectsAndGrandTotal = [self addExtras:[returnedCalc objectAtIndex:0] withExtras:extrasIn andSubGrandTotal:[[returnedCalc objectAtIndex:1] doubleValue]];
+    NSNumber *grandTotal = [self addExtraswithExtras:extrasIn andSubGrandTotal:[subGrandtotal doubleValue] andPayers:payersIn];
     
-    //Go through and assign pto's to payers to more easily associate later
-    for(PayerTotalObj *ptoOb in [payerTotalObjectsAndGrandTotal objectAtIndex:0]){
-        for(Payer *payerObj in payersIn){
-            if([payerObj.name isEqualToString:ptoOb.name]){
-                payerObj.payerObjectInfo = ptoOb;
-            }
-        }
-    }
-    NSMutableArray *newReturnPayerObjects = [[NSMutableArray alloc] initWithObjects:payersIn, [payerTotalObjectsAndGrandTotal objectAtIndex:1], nil];
+    NSMutableArray *newReturnPayerObjects = [[NSMutableArray alloc] initWithObjects:payersIn, grandTotal, nil]; //Send back payers(just a precaution because it's already passed by reference so any changes here are made in TotalsDisplayViewController. However the code is more easily followed this way. Also send back the grand total
     
     return newReturnPayerObjects;
 }
@@ -68,9 +62,8 @@
 /**
  * calculatePreExtrasSubTotal: Will get the subtotal of all payers before extras are applied as well as the subgrandtotal of all payers
  **/
-+(NSMutableArray *)calculatePreExtrasSubTotal:(NSMutableArray *)payersIn andItems:(NSMutableArray *)itemsIn
++(NSNumber *)calculatePreExtrasSubTotal:(NSMutableArray *)payersIn andItems:(NSMutableArray *)itemsIn
 {
-    NSMutableArray *payerTotalObjects = [[NSMutableArray alloc] init];
     for(Payer *payer in payersIn){ //Loop through all the payers to calculate their individual payerObjects.
         PayerTotalObj *tempPTO = [[PayerTotalObj alloc] initWithName:payer.name];
         NSMutableDictionary *sharedItems = [[NSMutableDictionary alloc] init];
@@ -85,37 +78,37 @@
         }
         tempPTO.subtotal = subtotal;
         tempPTO.sharedItemsAndSplitNumber = sharedItems;
-        [payerTotalObjects addObject:tempPTO];
+        payer.payerObjectInfo = tempPTO;
     }
     
     //Calculate subGrandTotal - everyone's items before extras are applied.
     double subGrandTotal = 0;
-    for(PayerTotalObj *pto in payerTotalObjects){
-        subGrandTotal = subGrandTotal + pto.subtotal;
+    for(Payer *payer in payersIn){
+        subGrandTotal = subGrandTotal + payer.payerObjectInfo.subtotal;
     }
-    return [[NSMutableArray alloc] initWithObjects:payerTotalObjects, [NSNumber numberWithDouble:subGrandTotal], nil];
+    return [NSNumber numberWithDouble:subGrandTotal];
 }
 
 
 /**
  * addExtras: withExtras :andSubGrandTotal - This is a helper function that will calculate the extras the user chose. Will calculate for each person 
  **/
-+(NSMutableArray *)addExtras:(NSMutableArray *)ptosIn  withExtras:(NSMutableDictionary *)extrasIn andSubGrandTotal:(double)subGrandTotalIn
++(NSNumber *)addExtraswithExtras:(NSMutableDictionary *)extrasIn andSubGrandTotal:(double)subGrandTotalIn andPayers:(NSMutableArray *)payersIn
 {
     //loop through all ptos and do extras
     
     double grandAfterDiscounts = 0;
-    for(PayerTotalObj *ptoItem in ptosIn){
+    for(Payer *payer in payersIn){
         
         //Flat Discount
         NSString *flatDiscount = [extrasIn objectForKey:@"Flat Discount"];
-        double currentFlatPercentShareOfTotal = ptoItem.subtotal/ subGrandTotalIn;
-        double tempSub = ptoItem.subtotal;
+        double currentFlatPercentShareOfTotal = payer.payerObjectInfo.subtotal/ subGrandTotalIn;
+        double tempSub = payer.payerObjectInfo.subtotal;
         
         if(flatDiscount == nil){
             flatDiscount = @"0";
         } else {
-            [ptoItem addExtraApplied:(currentFlatPercentShareOfTotal * [flatDiscount doubleValue]) withKey:@"Flat Discount Applied"];
+            [payer.payerObjectInfo addExtraApplied:(currentFlatPercentShareOfTotal * [flatDiscount doubleValue]) withKey:@"Flat Discount Applied"];
         }
 
         tempSub = tempSub - (currentFlatPercentShareOfTotal * [flatDiscount doubleValue]);
@@ -125,50 +118,50 @@
         if(percentDiscount == nil){
             percentDiscount = @"0";
         } else {
-            [ptoItem addExtraApplied:(tempSub * ([percentDiscount doubleValue] / 100)) withKey:@"Percent Discount Applied"];
+            [payer.payerObjectInfo addExtraApplied:(tempSub * ([percentDiscount doubleValue] / 100)) withKey:@"Percent Discount Applied"];
         }
         tempSub = tempSub - (tempSub * ([percentDiscount doubleValue] / 100));
-        ptoItem.total = tempSub;
+        payer.payerObjectInfo.total = tempSub;
         grandAfterDiscounts = grandAfterDiscounts + tempSub;
     }
     
     //Extra charges
     double grandAfterExtraCharges = 0;
-        for(PayerTotalObj *ptoItem in ptosIn){
-        double currentFlatPercentShareOfTotal = ptoItem.total/ grandAfterDiscounts;
+        for(Payer *payer in payersIn){
+        double currentFlatPercentShareOfTotal = payer.payerObjectInfo.total/ grandAfterDiscounts;
         NSString *extraCharges = [extrasIn objectForKey:@"Extra Charges"];
         if(extraCharges == nil){
             extraCharges = @"0";
         } else {
-            [ptoItem addExtraApplied:(currentFlatPercentShareOfTotal * [extraCharges doubleValue]) withKey:@"Extra Charges Applied"];
+            [payer.payerObjectInfo addExtraApplied:(currentFlatPercentShareOfTotal * [extraCharges doubleValue]) withKey:@"Extra Charges Applied"];
         }
-        double tempSub = ptoItem.total;
+        double tempSub = payer.payerObjectInfo.total;
         tempSub = tempSub + (currentFlatPercentShareOfTotal * [extraCharges doubleValue]);
-        ptoItem.total = tempSub;
+        payer.payerObjectInfo.total = tempSub;
         grandAfterExtraCharges = grandAfterExtraCharges + tempSub;
 
     }
     
     //Tax
     double grandAfterTax = 0;
-    for(PayerTotalObj *ptoItem in ptosIn){
-        double currentFlatPercentShareOfTotal = ptoItem.total/ grandAfterExtraCharges;
+    for(Payer *payer in payersIn){
+        double currentFlatPercentShareOfTotal = payer.payerObjectInfo.total/ grandAfterExtraCharges;
         NSString *tax = [extrasIn objectForKey:@"Tax (Amount)"];
         if(tax == nil){
             tax = @"0";
         } else {
-            [ptoItem addExtraApplied:(currentFlatPercentShareOfTotal * [tax doubleValue]) withKey:@"Tax Applied"];
+            [payer.payerObjectInfo addExtraApplied:(currentFlatPercentShareOfTotal * [tax doubleValue]) withKey:@"Tax Applied"];
         }
-        double tempSub = ptoItem.total;
+        double tempSub = payer.payerObjectInfo.total;
         tempSub = tempSub + (currentFlatPercentShareOfTotal * [tax doubleValue]);
-        ptoItem.total = tempSub;
+        payer.payerObjectInfo.total = tempSub;
         grandAfterTax = grandAfterTax + tempSub;
     }
     
     //Tip
     double grandafterTip = 0;
-    for(PayerTotalObj *ptoItem in ptosIn){
-        double currentFlatPercentShareOfTotal = ptoItem.total/ grandAfterTax;
+    for(Payer *payer in payersIn){
+        double currentFlatPercentShareOfTotal = payer.payerObjectInfo.total/ grandAfterTax;
         NSString *tipAmount = [extrasIn objectForKey:@"Tip"];
         NSString *tipByWhat = [extrasIn objectForKey:@"tipByWhat"];
         BOOL tipNull = YES;
@@ -177,7 +170,7 @@
         } else {
             tipNull = NO;
         }
-        double tempSub = ptoItem.total;
+        double tempSub = payer.payerObjectInfo.total;
         double useAmount = 0;
         if([tipByWhat isEqualToString:@"tip_by_percent"] || tipByWhat == nil) {
             tempSub = tempSub + (tempSub * ([tipAmount doubleValue]/100));
@@ -188,32 +181,29 @@
         }
         
         if(!tipNull){
-            [ptoItem addExtraApplied:useAmount withKey:@"Tip Applied"];
+            [payer.payerObjectInfo addExtraApplied:useAmount withKey:@"Tip Applied"];
         }
-        ptoItem.total = tempSub;
+        payer.payerObjectInfo.total = tempSub;
         grandafterTip = grandafterTip + tempSub;
 
     }
     
     //Percent share of total: has final subtotal, now calculate percent share of total.
     //Also check if subtotal is < 0
-    for(PayerTotalObj *ptoItem in ptosIn){
-        ptoItem.percentShareOfTotal = ptoItem.subtotal / grandafterTip;
-        if(ptoItem.total < 0){
-            if(ptoItem.subtotal < 0){
-                ptoItem.subtotal = 0;
+    for(Payer *payer in payersIn){
+        payer.payerObjectInfo.percentShareOfTotal = payer.payerObjectInfo.total / grandafterTip;
+        if(payer.payerObjectInfo.total < 0){
+            if(payer.payerObjectInfo.subtotal < 0){
+                payer.payerObjectInfo.subtotal = 0;
             }
-            ptoItem.total = 0;
+            payer.payerObjectInfo.total = 0;
         }
     }
     if(grandafterTip < 0){
         grandafterTip = 0;
     }
-    
-    NSMutableArray *returnArray = [[NSMutableArray alloc] init];
-    [returnArray addObject:ptosIn];
-    [returnArray addObject:[NSNumber numberWithDouble:grandafterTip]];
-    return  returnArray;
+
+    return  [NSNumber numberWithDouble:grandafterTip];
 }
 
 
