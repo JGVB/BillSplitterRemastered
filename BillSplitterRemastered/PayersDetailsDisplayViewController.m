@@ -121,7 +121,7 @@
         cell.lNumOfPeople.text = appended;
         
         //Item Cost
-        double costDouble =[[[[self.selectedPayerTotal items] objectAtIndex:indexPath.row] cost] doubleValue]; //Get cost of item data source
+        double costDouble =[[[self.selectedPayerTotal items] objectAtIndex:indexPath.row] cost]; //Get cost of item data source
         costDouble = costDouble / numOfPeopleSplitWith; //Divide the item price by number of people splitting it.
         NSString *cost = [NSString stringWithFormat:@"%f", costDouble];
         cost = [ErrorChecking formatNumberTo2DecimalPlaces:cost];

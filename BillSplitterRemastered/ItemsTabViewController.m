@@ -119,9 +119,8 @@
     NSMutableArray *errors = [ErrorChecking checkName:userEnteredNameTrimmed];
     [errors addObjectsFromArray:[ErrorChecking checkPositiveNonNegativeNonEmptyHasNonNumbers:userEnteredCostTrimmed]];
     if([errors count] == 0){ //No errors, add payer
-        NSString *rounded = [ErrorChecking formatNumberTo2DecimalPlaces:userEnteredCostTrimmed];
-        userEnteredCostTrimmed = rounded;
-        Item *newItem = [[Item alloc] initWithName:userEnteredNameTrimmed andCost:userEnteredCostTrimmed];
+        userEnteredCostTrimmed = [ErrorChecking formatNumberTo2DecimalPlaces:userEnteredCostTrimmed];
+        Item *newItem = [[Item alloc] initWithName:userEnteredNameTrimmed andCost:[userEnteredCostTrimmed doubleValue]];
         [self.itemDataSource addObject:newItem];
         [self.tableView reloadData];
         [self dismissKeyboard];
@@ -178,7 +177,8 @@
     // Configure the cell...
     Item *cellsItem = [self.itemDataSource objectAtIndex:indexPath.row];
     cell.lItemName.text = cellsItem.name;
-    cell.lItemCost.text = [@"$" stringByAppendingString:cellsItem.cost];
+    NSString *formatted = [ErrorChecking formatNumberTo2DecimalPlaces:[NSString stringWithFormat:@"%f", cellsItem.cost]];
+    cell.lItemCost.text = [@"$" stringByAppendingString:formatted];
     NSString *payersString = @" payers";
     if([cellsItem.payers count] == 1){ //Phrasing!
         payersString = @" payer";

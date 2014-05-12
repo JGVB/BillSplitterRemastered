@@ -80,7 +80,7 @@
             if(numberOfPayers > 1){
                 [sharedItems setObject:[NSNumber numberWithInteger:numberOfPayers] forKey:item.name]; //Adds all the shared items to display later.  Key is item name, object is how many payers split with.  To display...Items:  1/2 of item2.
             }
-            double numCost = [item.cost doubleValue]; //Get item's cost
+            double numCost = item.cost; //Get item's cost
             subtotal = subtotal + (numCost / numberOfPayers); //Take cost of item and divide by number of payers, add to subtotal.
         }
         tempPTO.subtotal = subtotal;

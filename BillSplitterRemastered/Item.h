@@ -14,11 +14,11 @@
 @interface Item : NSObject
 
 @property(nonatomic, copy, readwrite)NSString *name; //Name of item
-@property(nonatomic, copy, readwrite)NSString *cost; //Cost of item
+@property(nonatomic, readwrite)double cost; //Cost of item
 @property(nonatomic, strong, readwrite)NSMutableArray *payers; //array of payers that are paying for the item
 
--(id)initWithName:(NSString *)nameIn andCost:(NSString *)costIn;
--(id)initWithName:(NSString *)nameIn andCost:(NSString *)costIn andPayers:(NSMutableArray *)payersIn;
+-(id)initWithName:(NSString *)nameIn andCost:(double)costIn;
+-(id)initWithName:(NSString *)nameIn andCost:(double)costIn andPayers:(NSMutableArray *)payersIn;
 -(void)addPayer:(Payer *)payerIn;
 
 @end

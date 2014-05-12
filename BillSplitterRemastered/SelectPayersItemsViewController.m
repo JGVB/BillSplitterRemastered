@@ -75,7 +75,7 @@
     // Configure the cell...
     Item *cellsItem = [self.allItemsMutArray objectAtIndex:indexPath.row];
     cell.lItemName.text = cellsItem.name;
-    cell.lItemCost.text = [@"$" stringByAppendingString:cellsItem.cost];
+    cell.lItemCost.text = [@"$" stringByAppendingString:[ErrorChecking formatNumberTo2DecimalPlaces:[NSString stringWithFormat:@"%f",cellsItem.cost]]];
     
     NSMutableArray *sharedNames = [[NSMutableArray alloc] init];
     NSString *sharedStringNames = @"";
@@ -100,7 +100,7 @@
         sharedStringNames = [sharedStringNames substringToIndex:sharedStringNames.length - 2];
         
         //Add label's "each" cost
-        double costSplit = [cellsItem.cost doubleValue] / [cellsItem.payers count]; //Get cost of item / number of payers to get split cost
+        double costSplit = cellsItem.cost / [cellsItem.payers count]; //Get cost of item / number of payers to get split cost
         NSString *formattedCost = [ErrorChecking formatNumberTo2DecimalPlaces:[NSString stringWithFormat:@"%f", costSplit]]; //Format split cost
         cell.lCostEach.text = [@"$" stringByAppendingString:formattedCost];
     } else {
