@@ -10,6 +10,8 @@
 
 @interface Calculations : NSObject
 
-+(NSMutableArray *)performCalculationsWithPayers:(NSMutableArray *)payersIn andItems:(NSMutableArray *)itemsIn andExtras:(NSMutableDictionary *)extrasIn;
++(NSMutableArray *)performCalculationsWithPayersSplitUnevenly:(NSMutableArray *)payersIn andItems:(NSMutableArray *)itemsIn andExtras:(NSMutableDictionary *)extrasIn;
++(NSMutableArray *)performCalculationsWithPayersSplitEvenly:(NSMutableArray *)payersIn andItems:(NSMutableArray *)itemsIn andExtras:(NSMutableDictionary *)extrasIn;
+
 
 @end

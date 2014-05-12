@@ -42,6 +42,7 @@
     if(self = [super initWithCoder:aDecoder]){
         //Initialize
         self.extrasDataSource = [[NSMutableDictionary alloc] init];
+        [self.extrasDataSource setObject:@"Unevenly" forKey:@"how_to_split"]; //This initially sets the bill to unevenly split because that is automatically selected by default when table is set.
     }
     return self;
 }
@@ -70,12 +71,9 @@
     
     //TotalsDisplayViewController(later in queue) disables the 3 tabs in order to deter the user from navigating when viewing the totals.
     //The next few lines will re-enable the tabs when the back button is pressed from that view and tab navigation should be, once again, enabled.
-    UITabBarItem *tabBarItem = [[[[self tabBarController]tabBar]items] objectAtIndex:0];
-    [tabBarItem setEnabled:TRUE];
-    UITabBarItem *tabBarItem1 = [[[[self tabBarController]tabBar]items] objectAtIndex:1];
-    [tabBarItem1 setEnabled:TRUE];
-    UITabBarItem *tabBarItem2 = [[[[self tabBarController]tabBar]items] objectAtIndex:2];
-    [tabBarItem2 setEnabled:TRUE];
+    for(UITabBarItem *item in [[self.tabBarController tabBar] items]){
+        [item setEnabled:TRUE];
+    }
 }
 
 
@@ -216,12 +214,12 @@
             self.cellTipByPercent.accessoryType = UITableViewCellAccessoryNone;
         }
     } else if([theCellClicked.reuseIdentifier isEqualToString:@"split_bill_equally_reuse"]){
-        if(theCellClicked.accessoryType == UITableViewCellAccessoryNone){//User wants the bill split equally, set checkmark, set global?
+        if(theCellClicked.accessoryType == UITableViewCellAccessoryNone){//User wants the bill split equally, set checkmark, add to dataSource?
             theCellClicked.accessoryType = UITableViewCellAccessoryCheckmark;
-            todo  set global to signify split equally
-            
-        } else { //if the user switches to not split the bill equally, set checkmark non, set global to signify split unevenly.
+            [self.extrasDataSource setObject:@"Evenly" forKey:@"how_to_split"];
+        } else { //if the user switches to not split the bill equally, set checkmark non, set datasource to signify split unevenly.
             theCellClicked.accessoryType = UITableViewCellAccessoryNone;
+            [self.extrasDataSource setObject:@"Unevenly" forKey:@"how_to_split"];
         }
     
     }

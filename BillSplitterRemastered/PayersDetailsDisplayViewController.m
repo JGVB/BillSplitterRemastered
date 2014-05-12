@@ -57,8 +57,8 @@
         case 2: //Section 2 is the subtotal and extras
             numberOfRows = [self.selectedPayerTotal.payerObjectInfo.listOfExtrasApplied count];
             break;
-        default: //Section 3 is the payer's total
-            numberOfRows = 0;
+        default: //Section 3 is the payer's total and percent share of total
+            numberOfRows = 1;
     }
     return numberOfRows;
 }
@@ -76,7 +76,7 @@
             sectionName = [NSString stringWithFormat:@"Bill for %@", self.selectedPayerTotal.name];
             break;
         case 1: //Items and their shares section
-            sectionName = @"Items";
+            sectionName = ([[self.selectedPayerTotal items] count] == 1) ? @"1 Item" : [NSString stringWithFormat:@"%lu Items", [[self.selectedPayerTotal items] count]];
             break;
         case 2: //Subtotal and extras section
             sectionName = [NSString stringWithFormat:@"Subtotal: $%@", [ErrorChecking formatNumberTo2DecimalPlaces:[NSString stringWithFormat:@"%f",self.selectedPayerTotal.payerObjectInfo.subtotal]]];
@@ -134,6 +134,10 @@
         titleLabel = [titleLabel stringByAppendingString:@":"];
         cell.lNumOfPeople.text = titleLabel;
         cell.lCost.text = [@"$" stringByAppendingString:stringDetailLabelCost];
+    } else if(indexPath.section == 3){ //Section 3 has the total-> as well as the percent share of total of the payer
+        cell.lNumOfPeople.text = @"Percent share of total:";
+        NSString *stringPercent =  [ErrorChecking formatNumberTo2DecimalPlaces:[NSString stringWithFormat:@"%f", (self.selectedPayerTotal.payerObjectInfo.percentShareOfTotal*100)]];
+        cell.lCost.text =[stringPercent stringByAppendingString:@"%"];
     }
     return cell;
 }

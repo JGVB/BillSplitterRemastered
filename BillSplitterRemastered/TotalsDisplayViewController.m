@@ -43,12 +43,9 @@
     [super viewWillAppear:animated];
     
     //Disable tabs when calculating to prevent user from getting confused.
-    UITabBarItem *tabBarItem = [[[[self tabBarController]tabBar]items] objectAtIndex:0];
-    [tabBarItem setEnabled:FALSE];
-    UITabBarItem *tabBarItem1 = [[[[self tabBarController]tabBar]items] objectAtIndex:1];
-    [tabBarItem1 setEnabled:FALSE];
-    UITabBarItem *tabBarItem2 = [[[[self tabBarController]tabBar]items] objectAtIndex:2];
-    [tabBarItem2 setEnabled:FALSE];
+    for(UITabBarItem *item in [[self.tabBarController tabBar] items]){
+        [item setEnabled:FALSE];
+    }
 }
 
 /**
@@ -59,7 +56,12 @@
     [super viewDidLoad];
 
     //Initiate calculations
-    NSMutableArray *payerTotalObjects = [Calculations performCalculationsWithPayers:self.payersDataSource andItems:self.itemsDataSource andExtras:self.extrasDataSource]; //Returns an array, index 0 - array of updated payer objects after calculations.  index 1 - Grand total to display in tableView
+    NSMutableArray *payerTotalObjects;
+    if([[self.extrasDataSource objectForKey:@"how_to_split"] isEqualToString:@"Unevenly"]){ //By default, bill is split unevenly
+        payerTotalObjects = [Calculations performCalculationsWithPayersSplitUnevenly:self.payersDataSource andItems:self.itemsDataSource andExtras:self.extrasDataSource]; //Returns an array, index 0 - array of updated payer objects after calculations.  index 1 - Grand total to display in tableView
+    } else { //user wants the bill split equally between all payers
+       // payerTotalObjects = [Calculations]
+    }
     self.payersDataSource = [payerTotalObjects objectAtIndex:0]; //gets the payers.
     double gt =[[payerTotalObjects objectAtIndex:1] doubleValue]; //Get grand total
     NSString *gtString = [ErrorChecking formatNumberTo2DecimalPlaces:[NSString stringWithFormat:@"%f", gt]];

@@ -55,12 +55,10 @@
     
     //TotalsDisplayViewController(later in queue) disables the 3 tabs in order to deter the user from navigating when viewing the totals.
     //The next few lines will re-enable the tabs when the back button is pressed from that view and tab navigation should be, once again, enabled.
-    UITabBarItem *tabBarItem = [[[[self tabBarController]tabBar]items] objectAtIndex:0];
-    [tabBarItem setEnabled:TRUE];
-    UITabBarItem *tabBarItem1 = [[[[self tabBarController]tabBar]items] objectAtIndex:1];
-    [tabBarItem1 setEnabled:TRUE];
-    UITabBarItem *tabBarItem2 = [[[[self tabBarController]tabBar]items] objectAtIndex:2];
-    [tabBarItem2 setEnabled:TRUE];
+    //Disable tabs when calculating to prevent user from getting confused.
+    for(UITabBarItem *item in [[self.tabBarController tabBar] items]){
+        [item setEnabled:TRUE];
+    }
     
     [self.tableView reloadData]; //Reload selected cell when returned from Selecting a payer's items - refreshes the item count in detail label
 }
@@ -96,11 +94,7 @@
         ItemsTabViewController *itvc = (ItemsTabViewController *)[[(UINavigationController *)[[self.tabBarController viewControllers] objectAtIndex:1] viewControllers] objectAtIndex:0];
         ExtrasTabViewController *etvc = (ExtrasTabViewController *)[[(UINavigationController *)[[self.tabBarController viewControllers] objectAtIndex:2] viewControllers] objectAtIndex:0];
         TotalsDisplayViewController *tdvc = (TotalsDisplayViewController *)segue.destinationViewController;
-        if([etvc.extrasDataSource count] < 1){ //If the user has not yet clicked on the extras tab and wants to calculate total, must initialize extras data source.
-            tdvc.extrasDataSource = [[NSMutableDictionary alloc] init];
-        } else { //If not, use data saved in extras tab
-            tdvc.extrasDataSource = etvc.extrasDataSource;
-        }
+        tdvc.extrasDataSource = etvc.extrasDataSource;
         tdvc.payersDataSource = self.payerDataSource; //Send payers to TotalsDisplayViewController
         tdvc.itemsDataSource = itvc.itemDataSource; //Send items to TotalsDisplayViewController
     } else if ([segue.identifier isEqualToString:@"connect_items_and_payers_from_payers_segue"]){ //Segue to select items for selected payer
