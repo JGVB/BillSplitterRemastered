@@ -57,7 +57,9 @@
         NSInteger numberOfPayer = [payersIn count];
         double itemsCosts = 0;
         for(Item *item in itemsIn){ //Add up item prices
-            itemsCosts += item.cost;
+            if([item.payers count] > 0){
+                itemsCosts += item.cost;
+            }
         }
         double subtotal = itemsCosts / numberOfPayer;
         for(Payer *payer in payersIn){//loop through and add the new subtotal to the pto. Everyone has the same subtotal. and shared
@@ -65,8 +67,10 @@
             NSMutableDictionary *sharedItems = [[NSMutableDictionary alloc] init];
             double key = 0;
             for(Item *item in itemsIn){ //Add all the items and number of payers to each payer's pto.sharedItemsAndSplitNumber
-                [sharedItems setObject:[[NSArray alloc] initWithObjects:[NSNumber numberWithInteger:payersIn.count], item, nil]  forKey:[NSNumber numberWithDouble:key]];
-                 key += 1;
+                if([item.payers count] > 0){
+                    [sharedItems setObject:[[NSArray alloc] initWithObjects:[NSNumber numberWithInteger:payersIn.count], item, nil]  forKey:[NSNumber numberWithDouble:key]];
+                    key += 1;
+                }
             }
             payer.payerObjectInfo.sharedItemsAndSplitNumber = sharedItems;
         }
