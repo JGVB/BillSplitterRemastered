@@ -85,6 +85,7 @@
     }
 }
 
+
 /**
  * prepareForSegue: Notifies the view controller that a segue is about to be performed.
 **/
@@ -122,12 +123,16 @@
     NSMutableArray *errors = [ErrorChecking checkName:userEnteredNameTrimmed];
     [errors addObjectsFromArray:[ErrorChecking checkPositiveNonNegativeNonEmptyHasNonNumbers:userEnteredCostTrimmed]];
     NSMutableArray *info =[ErrorChecking checkQuantity:userEnteredQuantityTrimmed];
-    [errors addObjectsFromArray:[info objectAtIndex:0]];
-    self.tfQuantity.text =[info objectAtIndex:1];
+    [errors addObjectsFromArray:[info objectAtIndex:0]]; //Add all the errors returned to be displayed
+    self.tfQuantity.text =[info objectAtIndex:1];//Get the new number returned - if decimal, nuber was truncated.
     if([errors count] == 0){ //No errors, add payer
         userEnteredCostTrimmed = [ErrorChecking formatNumberTo2DecimalPlaces:userEnteredCostTrimmed];
-        Item *newItem = [[Item alloc] initWithName:userEnteredNameTrimmed andCost:[userEnteredCostTrimmed doubleValue]];
-        [self.itemDataSource addObject:newItem];
+        NSInteger quantity = self.tfQuantity.text.integerValue;//Number of this item the user wants - quantity
+        //Loop to create that amount of items
+        for(int i = 0; i < quantity; i++){
+            Item *newItem = [[Item alloc] initWithName:userEnteredNameTrimmed andCost:[userEnteredCostTrimmed doubleValue]];
+            [self.itemDataSource addObject:newItem];
+        }
         [self.tableView reloadData];
         [self dismissKeyboard];
         //Clear text fields

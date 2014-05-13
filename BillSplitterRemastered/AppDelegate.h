@@ -25,7 +25,7 @@
 //remember users(show up while typing?)
 //Make display good - auto layout - struts..etc
 //Make only numbers and decimals come up when on quantities(quantity and cost of item)
-
+//Instruction page - maybe put it on the splash or menu?
 
 //3 of same item - make easier to copy item. - OR could do when you're adding an item - have quanity signifying that different steak for each payer who wants their own.
 

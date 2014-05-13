@@ -26,7 +26,7 @@ NSString *ERR5 = @"Please enter a positive number.";
 NSString *ERR6 = @"Please enter at least 1 payer's name on the Payers Tab.";
 NSString *ERR7 = @"Please enter at least 1 item on the Items Tab.";
 NSString *ERR8 = @"Each payer must have at least one item. If not, please delete the payer on the Payers Tab.";
-NSString *ERR9 = @"Please enter a quantity less than 31.";
+NSString *ERR9 = @"Please enter a quantity between 0 and 21.";
 
 
 
@@ -76,7 +76,7 @@ NSString *ERR9 = @"Please enter a quantity less than 31.";
     NSString *newestSaved = @"";
     if([errorMessages count] == 0){ //if no errors, check if below 31
         NSInteger newVal = [quantityIn integerValue];
-        if(newVal > 30){
+        if(newVal > 20 || newVal < 1){
             newestSaved = [NSString stringWithFormat:@"%lu", newVal];
             [errorMessages addObject:ERR9];
         } else { //Error and reset input
