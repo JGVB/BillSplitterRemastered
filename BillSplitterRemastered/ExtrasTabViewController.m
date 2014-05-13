@@ -156,15 +156,20 @@
 **/
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {
+    NSString *textFieldPlaceholder = textField.placeholder;
+    
     //Set default value
     if([textField.text isEqualToString:@""] || textField.text == nil){
         textField.text = @"0";
+    } else { //if there is a value being stored in the extras Data source, remove it
+        if([self.extrasDataSource objectForKey:textFieldPlaceholder] != nil){
+            [self.extrasDataSource removeObjectForKey:textFieldPlaceholder];
+        }
     }
     
     if(![textField.text isEqualToString:@"0"]){ //Don't add extra if it's 0 (user clicks on extra and changes nothing or enters 0)
         //error check
         NSString *textFieldData = [textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-        NSString *textFieldPlaceholder = textField.placeholder;
         NSMutableArray *errors = [ErrorChecking checkPositiveNonNegativeNonEmptyHasNonNumbers:textFieldData];
         if([errors count] == 0){ //No errors, add data
         [self.extrasDataSource setObject:[ErrorChecking formatNumberTo2DecimalPlaces:textFieldData] forKey:textFieldPlaceholder];
@@ -172,6 +177,10 @@
             //Save information when user gets off of text field.
             [ErrorChecking showErrorMessage:errors];
             textField.text = @"0";
+        }
+    } else { //if there is a value being stored in the extras Data source, remove it
+        if([self.extrasDataSource objectForKey:textFieldPlaceholder] != nil){
+            [self.extrasDataSource removeObjectForKey:textFieldPlaceholder];
         }
     }
 }
