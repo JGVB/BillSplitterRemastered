@@ -23,6 +23,7 @@
 @synthesize tfItemNameInput = _tfItemNameInput;
 @synthesize tfItemCostInput = _tfItemCostInput;
 @synthesize selectedItem = _selectedItem;
+@synthesize tfQuantity = _tfQuantity;
 
 /**
  * initWithCoder: Returns an object initialized from data in a given unarchiver. (required)
@@ -112,13 +113,17 @@
  * addItem: When user clicks add item, error check the input and if valid add to data source and update table
  **/
 - (IBAction)addItem:(id)sender {
-    //Get name and cost from item labels when user pressed add button
+    //Get name and cost from item labels when user pressed add button and quantity
     NSString *userEnteredNameTrimmed = [self.tfItemNameInput.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     NSString *userEnteredCostTrimmed = [self.tfItemCostInput.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *userEnteredQuantityTrimmed = [self.tfQuantity.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     
     //Check the input, if valid, add to datasource and update.
     NSMutableArray *errors = [ErrorChecking checkName:userEnteredNameTrimmed];
     [errors addObjectsFromArray:[ErrorChecking checkPositiveNonNegativeNonEmptyHasNonNumbers:userEnteredCostTrimmed]];
+    NSMutableArray *info =[ErrorChecking checkQuantity:userEnteredQuantityTrimmed];
+    [errors addObjectsFromArray:[info objectAtIndex:0]];
+    self.tfQuantity.text =[info objectAtIndex:1];
     if([errors count] == 0){ //No errors, add payer
         userEnteredCostTrimmed = [ErrorChecking formatNumberTo2DecimalPlaces:userEnteredCostTrimmed];
         Item *newItem = [[Item alloc] initWithName:userEnteredNameTrimmed andCost:[userEnteredCostTrimmed doubleValue]];
@@ -128,6 +133,7 @@
         //Clear text fields
         [self.tfItemCostInput setText:@""];
         [self.tfItemNameInput setText:@""];
+        [self.tfQuantity setText:@"1"];
     } else { //Error with input entered
         [ErrorChecking showErrorMessage:errors];
     }
@@ -139,6 +145,7 @@
 -(void)dismissKeyboard{
     [self.tfItemNameInput resignFirstResponder];
     [self.tfItemCostInput resignFirstResponder];
+    [self.tfQuantity resignFirstResponder];
 }
 
 

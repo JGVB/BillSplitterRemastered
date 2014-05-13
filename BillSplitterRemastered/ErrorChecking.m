@@ -20,12 +20,14 @@
 
 NSString *ERR1 = @"Enter name.";
 NSString *ERR2 = @"Please enter a unique name.";
-NSString *ERR3 = @"Enter item price.";
+NSString *ERR3 = @"Enter a number.";
 NSString *ERR4 = @"Must be a number.";
 NSString *ERR5 = @"Please enter a positive number.";
 NSString *ERR6 = @"Please enter at least 1 payer's name on the Payers Tab.";
 NSString *ERR7 = @"Please enter at least 1 item on the Items Tab.";
 NSString *ERR8 = @"Each payer must have at least one item. If not, please delete the payer on the Payers Tab.";
+NSString *ERR9 = @"Please enter a quantity less than 31.";
+
 
 
 /**
@@ -62,6 +64,27 @@ NSString *ERR8 = @"Each payer must have at least one item. If not, please delete
         }
     }
     return errorMessages;
+}
+
+
++(NSMutableArray *)checkQuantity:(NSString *)quantityIn
+{
+    NSMutableArray *errorMessages = [[NSMutableArray alloc] init];
+    //Check Number, positive
+    [errorMessages addObjectsFromArray:[self checkPositiveNonNegativeNonEmptyHasNonNumbers:quantityIn]];
+    //Check below 31
+    NSString *newestSaved = @"";
+    if([errorMessages count] == 0){ //if no errors, check if below 31
+        NSInteger newVal = [quantityIn integerValue];
+        if(newVal > 30){
+            newestSaved = [NSString stringWithFormat:@"%lu", newVal];
+            [errorMessages addObject:ERR9];
+        } else { //Error and reset input
+            newestSaved = quantityIn;
+        }
+    }
+    
+    return [[NSMutableArray alloc] initWithObjects:errorMessages, newestSaved, nil];
 }
 
 
