@@ -59,6 +59,14 @@
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     gestureRecognizer.cancelsTouchesInView = NO; //A Boolean value affecting whether touches are delivered to a view when a gesture is recognized.
     [self.tableView addGestureRecognizer:gestureRecognizer];
+    
+    //Set text fields to have numerical input
+    self.tfExtraCharges.keyboardType = UIKeyboardTypeDecimalPad;
+    self.tfFlatDiscount.keyboardType = UIKeyboardTypeDecimalPad;
+    self.tfPercentDiscount.keyboardType = UIKeyboardTypeDecimalPad;
+    self.tfTaxAmount.keyboardType = UIKeyboardTypeDecimalPad;
+    self.tfTip.keyboardType = UIKeyboardTypeDecimalPad;
+
 }
 
 

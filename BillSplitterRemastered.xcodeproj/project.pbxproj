@@ -317,6 +317,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = noOrg;
 				TargetAttributes = {
+					70B8B52A18AC050B0043395D = {
+						DevelopmentTeam = PF267CY4XC;
+					};
 					70B8B54B18AC050C0043395D = {
 						TestTargetID = 70B8B52A18AC050B0043395D;
 					};
@@ -508,10 +511,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BillSplitterRemastered/BillSplitterRemastered-Prefix.pch";
 				INFOPLIST_FILE = "BillSplitterRemastered/BillSplitterRemastered-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -521,10 +527,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BillSplitterRemastered/BillSplitterRemastered-Prefix.pch";
 				INFOPLIST_FILE = "BillSplitterRemastered/BillSplitterRemastered-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -20,6 +20,7 @@
  **/
 +(NSMutableArray *)performCalculationsWithPayersSplitEvenly:(NSMutableArray *)payersIn andItems:(NSMutableArray *)itemsIn andExtras:(NSMutableDictionary *)extrasIn
 {
+    //Calculate the raw totals from payer's items.
     NSNumber *subGrandTotal = [self calculatePreExtrasSubTotal:payersIn andItems:itemsIn splitEvenly:YES];
     
     //Add extras
@@ -34,7 +35,7 @@
  **/
 +(NSMutableArray *)performCalculationsWithPayersSplitUnevenly:payersIn andItems:itemsIn andExtras:extrasIn
 {
-    //Calculate the raw totals from payer's items. 0 has the objects, 1 has the subgrandtotal
+    //Calculate the raw totals from payer's items.
     NSNumber *subGrandtotal = [self calculatePreExtrasSubTotal:payersIn andItems:itemsIn splitEvenly:NO];
 
     //Add extras;  index 0 has updated PTOs, index 1 has subGrandTotal
@@ -45,6 +46,16 @@
     return newReturnPayerObjects;
 }
 
+
+/**
+ * clearPayerObjects: This function is needed to clear the PTOs when calculate is clicked so the numbers don't interfer with eachother if user goes back to extras or payers then to calculate again. Mainly for the total.
+ **/
++(void)clearPayerObjects:(NSMutableArray *)payersIn
+{
+    for(Payer *payer in payersIn){
+        payer.payerObjectInfo = [[PayerTotalObj alloc] initWithName:payer.name];
+    }
+}
 
 /**
  * calculatePreExtrasSubTotal: Will get the subtotal of all payers before extras are applied as well as the subgrandtotal of all payers

@@ -23,10 +23,12 @@
 //locales?
 //section to just be a tip calculator?
 //remember users(show up while typing?)
-//Make display good - auto layout - struts..etc
-//Make only numbers and decimals come up when on quantities(quantity and cost of item)
 //Instruction page - maybe put it on the splash or menu?
+//Make display good - auto layout - struts..etc
 
+//order of extras being applied still are messed up...number combinations just don't make sense.
+
+//Payer objects(and maybe other things) storing data after new extras entered
 
 
 #import <UIKit/UIKit.h>
