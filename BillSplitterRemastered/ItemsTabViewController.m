@@ -46,6 +46,10 @@
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     gestureRecognizer.cancelsTouchesInView = NO;
     [self.tableView addGestureRecognizer:gestureRecognizer];
+    
+    //Make numeric input for number inputs
+    self.tfQuantity.keyboardType = UIKeyboardTypeNumberPad;
+    self.tfItemCostInput.keyboardType = UIKeyboardTypeDecimalPad;
 }
 
 /**

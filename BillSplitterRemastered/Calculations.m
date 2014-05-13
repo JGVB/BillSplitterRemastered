@@ -57,7 +57,7 @@
         NSInteger numberOfPayer = [payersIn count];
         double itemsCosts = 0;
         for(Item *item in itemsIn){ //Add up item prices
-            if([item.payers count] > 0){
+            if([item.payers count] > 0){ //only add to cost if item is owned by someone
                 itemsCosts += item.cost;
             }
         }
@@ -67,7 +67,7 @@
             NSMutableDictionary *sharedItems = [[NSMutableDictionary alloc] init];
             double key = 0;
             for(Item *item in itemsIn){ //Add all the items and number of payers to each payer's pto.sharedItemsAndSplitNumber
-                if([item.payers count] > 0){
+                if([item.payers count] > 0){ //only add item only if it is owned by someone
                     [sharedItems setObject:[[NSArray alloc] initWithObjects:[NSNumber numberWithInteger:payersIn.count], item, nil]  forKey:[NSNumber numberWithDouble:key]];
                     key += 1;
                 }
