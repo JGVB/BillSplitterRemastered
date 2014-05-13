@@ -16,27 +16,16 @@
 
 //extrasDatasource now has how_to_split in it.  So calculate accordingly.  Don't forget to split it all evenly.(change the tax, tip,...etc for each person.
 
-Evenly not splitting items on payer details.  price is still uneven split
 
 /**
  * performCalculationsWithPayersSplitEvenly andItems andExtras - Will calculate the even split of the payer's totals!
  **/
 +(NSMutableArray *)performCalculationsWithPayersSplitEvenly:(NSMutableArray *)payersIn andItems:(NSMutableArray *)itemsIn andExtras:(NSMutableDictionary *)extrasIn
 {
-    //Make everyone's subtotal the same to prepare to send to extras calculation
-    //Get all item prices, add them up and divide by the nuber of payers
-    NSInteger numberOfPayer = [payersIn count];
-    double itemsCosts = 0;
-    for(Item *item in itemsIn){ //Add up item prices
-        itemsCosts += item.cost;
-    }
-    double newSubTotals = itemsCosts / numberOfPayer;
-    for(Payer *payer in payersIn){//loop through and add the new subtotal to the pto. Everyone has the same subtotal.
-        payer.payerObjectInfo.subtotal = newSubTotals;
-    }
+    NSNumber *subGrandTotal = [self calculatePreExtrasSubTotal:payersIn andItems:itemsIn splitEvenly:YES];
     
     //Add extras
-    NSNumber *grandTotal = [self addExtraswithExtras:extrasIn andSubGrandTotal:itemsCosts andPayers:payersIn];
+    NSNumber *grandTotal = [self addExtraswithExtras:extrasIn andSubGrandTotal:[subGrandTotal doubleValue] andPayers:payersIn];
     
     return [[NSMutableArray alloc] initWithObjects:payersIn, grandTotal, nil];
 }
@@ -48,7 +37,7 @@ Evenly not splitting items on payer details.  price is still uneven split
 +(NSMutableArray *)performCalculationsWithPayersSplitUnevenly:payersIn andItems:itemsIn andExtras:extrasIn
 {
     //Calculate the raw totals from payer's items. 0 has the objects, 1 has the subgrandtotal
-    NSNumber *subGrandtotal = [self calculatePreExtrasSubTotal:payersIn andItems:itemsIn];
+    NSNumber *subGrandtotal = [self calculatePreExtrasSubTotal:payersIn andItems:itemsIn splitEvenly:NO];
 
     //Add extras;  index 0 has updated PTOs, index 1 has subGrandTotal
     NSNumber *grandTotal = [self addExtraswithExtras:extrasIn andSubGrandTotal:[subGrandtotal doubleValue] andPayers:payersIn];
@@ -62,25 +51,42 @@ Evenly not splitting items on payer details.  price is still uneven split
 /**
  * calculatePreExtrasSubTotal: Will get the subtotal of all payers before extras are applied as well as the subgrandtotal of all payers
  **/
-+(NSNumber *)calculatePreExtrasSubTotal:(NSMutableArray *)payersIn andItems:(NSMutableArray *)itemsIn
++(NSNumber *)calculatePreExtrasSubTotal:(NSMutableArray *)payersIn andItems:(NSMutableArray *)itemsIn splitEvenly:(BOOL)evenly
 {
-    for(Payer *payer in payersIn){ //Loop through all the payers to calculate their individual payerObjects.
-        PayerTotalObj *tempPTO = [[PayerTotalObj alloc] initWithName:payer.name];
-        NSMutableDictionary *sharedItems = [[NSMutableDictionary alloc] init];
-        double subtotal = 0;//Keeps track of each payer's subtotal.
-        for(Item *item in payer.items){//loops through items and find the subtotal - keep in mind splits
-            NSInteger numberOfPayers = [ item.payers count];
-            if(numberOfPayers > 1){
-                [sharedItems setObject:[NSNumber numberWithInteger:numberOfPayers] forKey:item.name]; //Adds all the shared items to display later.  Key is item name, object is how many payers split with.  To display...Items:  1/2 of item2.
-            }
-            double numCost = item.cost; //Get item's cost
-            subtotal = subtotal + (numCost / numberOfPayers); //Take cost of item and divide by number of payers, add to subtotal.
+    if(evenly){ //Bill is split evenly. everyone gets the same
+        //Make everyone's subtotal the same to prepare to send to extras calculation
+        //Get all item prices, add them up and divide by the nuber of payers
+        NSInteger numberOfPayer = [payersIn count];
+        double itemsCosts = 0;
+        for(Item *item in itemsIn){ //Add up item prices
+            itemsCosts += item.cost;
         }
-        tempPTO.subtotal = subtotal;
-        tempPTO.sharedItemsAndSplitNumber = sharedItems;
-        payer.payerObjectInfo = tempPTO;
+        double subtotal = itemsCosts / numberOfPayer;
+        for(Payer *payer in payersIn){//loop through and add the new subtotal to the pto. Everyone has the same subtotal. and shared
+            payer.payerObjectInfo.subtotal = subtotal;
+            NSMutableDictionary *sharedItems = [[NSMutableDictionary alloc] init];
+            double key = 0;
+            for(Item *item in itemsIn){ //Add all the items and number of payers to each payer's pto.sharedItemsAndSplitNumber
+                [sharedItems setObject:[[NSArray alloc] initWithObjects:[NSNumber numberWithInteger:payersIn.count], item, nil]  forKey:[NSNumber numberWithDouble:key]];
+                 key += 1;
+            }
+            payer.payerObjectInfo.sharedItemsAndSplitNumber = sharedItems;
+        }
+    } else { //Bill is split unevenly, based on what the payer bought.
+        for(Payer *payer in payersIn){ //Loop through all the payers to calculate their individual payerObjects.
+            NSMutableDictionary *sharedItems = [[NSMutableDictionary alloc] init];
+            double subtotal = 0;//Keeps track of each payer's subtotal.
+            double key = 0;
+            for(Item *item in payer.items){//loops through items and find the subtotal - keep in mind splits
+                [sharedItems setObject:[[NSArray alloc] initWithObjects:[NSNumber numberWithInteger:[item.payers count]], item, nil]  forKey:[NSNumber numberWithDouble:key]]; //Adds all the shared items to display later.  Key is item name, object is how many payers split with.  To display...Items:  1/2 of item2.
+                double numCost = item.cost; //Get item's cost
+                subtotal = subtotal + (numCost / [item.payers count]); //Take cost of item and divide by number of payers, add to subtotal.
+                key +=1;
+            }
+            payer.payerObjectInfo.subtotal = subtotal;
+            payer.payerObjectInfo.sharedItemsAndSplitNumber = sharedItems;
+        }
     }
-    
     //Calculate subGrandTotal - everyone's items before extras are applied.
     double subGrandTotal = 0;
     for(Payer *payer in payersIn){

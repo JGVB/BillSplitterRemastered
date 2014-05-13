@@ -52,7 +52,7 @@
             numberOfRows = 0;
             break;
         case 1: //Section 1 is items and their shares section
-            numberOfRows = [[self.selectedPayerTotal items] count];
+            numberOfRows = [self.selectedPayerTotal.payerObjectInfo.sharedItemsAndSplitNumber count];
             break;
         case 2: //Section 2 is the subtotal and extras
             numberOfRows = [self.selectedPayerTotal.payerObjectInfo.listOfExtrasApplied count];
@@ -76,7 +76,7 @@
             sectionName = [NSString stringWithFormat:@"Bill for %@", self.selectedPayerTotal.name];
             break;
         case 1: //Items and their shares section
-            sectionName = ([[self.selectedPayerTotal items] count] == 1) ? @"1 Item" : [NSString stringWithFormat:@"%lu Items", [[self.selectedPayerTotal items] count]];
+            sectionName = ([self.selectedPayerTotal.payerObjectInfo.sharedItemsAndSplitNumber count] == 1) ? @"1 Item" : [NSString stringWithFormat:@"%lu Items", [self.selectedPayerTotal.payerObjectInfo.sharedItemsAndSplitNumber count]];
             break;
         case 2: //Subtotal and extras section
             sectionName = [NSString stringWithFormat:@"Subtotal: $%@", [ErrorChecking formatNumberTo2DecimalPlaces:[NSString stringWithFormat:@"%f",self.selectedPayerTotal.payerObjectInfo.subtotal]]];
@@ -106,9 +106,10 @@
     // Configure the cell...
     //Items
     if(indexPath.section == 1){ //Section 1 contains all the payer's items and how many people the selected payer splits it with.
-        NSInteger numOfPeopleSplitWith = [[[[self.selectedPayerTotal items] objectAtIndex:indexPath.row] payers] count]; //Gets number of payers for an object
+        NSArray *listOfSplitKeysItemName = [self.selectedPayerTotal.payerObjectInfo.sharedItemsAndSplitNumber allKeys];
+        NSInteger numOfPeopleSplitWith = [[[self.selectedPayerTotal.payerObjectInfo.sharedItemsAndSplitNumber objectForKey:[listOfSplitKeysItemName objectAtIndex:indexPath.row]] objectAtIndex:0] integerValue]; //Gets number of payers for an object
         NSString *stringNum = [NSString stringWithFormat:@"%li", (long)numOfPeopleSplitWith];
-        NSString *itemName = [[[self.selectedPayerTotal items] objectAtIndex:indexPath.row] name];
+        NSString *itemName = [[[self.selectedPayerTotal.payerObjectInfo.sharedItemsAndSplitNumber objectForKey:[listOfSplitKeysItemName objectAtIndex:indexPath.row]] objectAtIndex:1] name]; //get the name of the item
         NSString *appended = @"";
         if([stringNum isEqualToString:@"1"]){ //If there is one item, grammar will be 1 of ITEM X
             appended =[[@"1" stringByAppendingString:@" of "]
@@ -121,7 +122,7 @@
         cell.lNumOfPeople.text = appended;
         
         //Item Cost
-        double costDouble =[[[self.selectedPayerTotal items] objectAtIndex:indexPath.row] cost]; //Get cost of item data source
+        double costDouble = [[[self.selectedPayerTotal.payerObjectInfo.sharedItemsAndSplitNumber objectForKey:[listOfSplitKeysItemName objectAtIndex:indexPath.row]] objectAtIndex:1] cost];//Get cost of item data source
         costDouble = costDouble / numOfPeopleSplitWith; //Divide the item price by number of people splitting it.
         NSString *cost = [NSString stringWithFormat:@"%f", costDouble];
         cost = [ErrorChecking formatNumberTo2DecimalPlaces:cost];

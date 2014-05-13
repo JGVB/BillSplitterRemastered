@@ -29,7 +29,7 @@
     if(self = [super init]){
         self.name = nameIn;
         self.items = [[NSMutableArray alloc] init];
-        self.payerObjectInfo = [[PayerTotalObj alloc] initWithName:@"Name Not Yet Initialized"];
+        self.payerObjectInfo = [[PayerTotalObj alloc] initWithName:nameIn];
     }
     return self;
 }
@@ -39,7 +39,7 @@
     if(self = [super init]){
         self.name = nameIn;
         self.items = itemsIn;
-        self.payerObjectInfo = [[PayerTotalObj alloc] initWithName:@"Name Not Yet Initialized"];
+        self.payerObjectInfo = [[PayerTotalObj alloc] initWithName:nameIn];
     }
     return self;
 }

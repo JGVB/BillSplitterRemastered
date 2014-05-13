@@ -29,7 +29,7 @@
 //Make display good - auto layout - struts..etc
 
 //split type section? - split bill equally/unequally
-
+// When there are more than 1 payers, if none are attached to an item, will show the error message 3 times on one screen
 
 #import <UIKit/UIKit.h>
 

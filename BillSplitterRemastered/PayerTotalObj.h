@@ -14,7 +14,7 @@
 @property(nonatomic, readwrite)double subtotal;
 @property(nonatomic, readwrite)double percentShareOfTotal;
 @property(nonatomic, copy, readwrite)NSString *name;
-@property(nonatomic, strong, readwrite)NSMutableDictionary *sharedItemsAndSplitNumber; // of dictionaries.  Key is item name, object is number of people split with.
+@property(nonatomic, strong, readwrite)NSMutableDictionary *sharedItemsAndSplitNumber; //key is an incremented number.  Object is an array with index 0) number of people item is split with, 1) the item - use to extract name and price(to divide by num of players on display)
 @property(nonatomic, strong, readwrite)NSMutableDictionary *listOfExtrasApplied; //list of extras that have been applied.
 
 -(id)initWithName:(NSString *)nameIn;
