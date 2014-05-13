@@ -14,8 +14,6 @@
 
 @implementation Calculations
 
-//extrasDatasource now has how_to_split in it.  So calculate accordingly.  Don't forget to split it all evenly.(change the tax, tip,...etc for each person.
-
 
 /**
  * performCalculationsWithPayersSplitEvenly andItems andExtras - Will calculate the even split of the payer's totals!

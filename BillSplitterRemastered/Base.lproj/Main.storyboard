@@ -227,7 +227,7 @@
                                     </connections>
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ne-Y6-0kL">
-                                    <rect key="frame" x="218" y="20" width="82" height="47"/>
+                                    <rect key="frame" x="218" y="2" width="82" height="47"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="Add Item">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -236,6 +236,18 @@
                                         <action selector="addItem:" destination="Yuf-0J-cnm" eventType="touchUpInside" id="0GH-Mv-Ufc"/>
                                     </connections>
                                 </button>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" placeholder="Quantity" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="73V-oU-SP3">
+                                    <rect key="frame" x="218" y="49" width="82" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quantity: For Non Splits" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XJS-qd-oW6">
+                                    <rect key="frame" x="187" y="78" width="145" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </view>
@@ -289,6 +301,7 @@
                     <connections>
                         <outlet property="tfItemCostInput" destination="tQ4-EY-ZUc" id="9Ue-k5-Wj6"/>
                         <outlet property="tfItemNameInput" destination="KQf-9m-reP" id="kef-Dd-r4j"/>
+                        <outlet property="tfQuantity" destination="73V-oU-SP3" id="J98-ge-9HU"/>
                         <segue destination="yms-JK-CRF" kind="push" identifier="connect_items_and_payers_from_items_segue" id="sQ5-g3-cX8"/>
                         <segue destination="zAZ-ql-OEx" kind="push" identifier="calculate_from_items_segue" id="cDB-0d-44O"/>
                     </connections>
@@ -747,6 +760,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Vwx-YW-I3O"/>
+        <segue reference="cDB-0d-44O"/>
     </inferredMetricsTieBreakers>
 </document>

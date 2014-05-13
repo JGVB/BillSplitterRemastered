@@ -12,6 +12,7 @@
 
 @property(nonatomic, weak, readwrite)IBOutlet UITextField *tfItemNameInput; //Text field with the name of the item
 @property(nonatomic, weak, readwrite)IBOutlet UITextField *tfItemCostInput; //Text field with the cost of the item
+@property (weak, nonatomic) IBOutlet UITextField *tfQuantity; //Stores the quantity of items when creating
 @property(nonatomic, strong, readwrite) Item *selectedItem; //Selected item sent to SelectItemsPayersViewController
 
 @end

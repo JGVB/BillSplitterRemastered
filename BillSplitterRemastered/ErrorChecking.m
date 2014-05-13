@@ -135,12 +135,16 @@ NSString *ERR8 = @"Each payer must have at least one item. If not, please delete
             //Show error
             [errorMessages addObject:ERR7];
         } else { //There are items, and payers, continue to check if any items have payers.
+            bool hasItem = YES;
             for(Payer *payer in payersIn){//loop through payers and make sure each one has at least one item.
                 if([payer.items count] < 1){
-                    [errorMessages addObject:ERR8];
+                    hasItem = NO;
                 } else { //All payers have at least an item.
 
                 }
+            }
+            if(!hasItem){
+                [errorMessages addObject:ERR8];
             }
         }
     }

@@ -23,13 +23,12 @@
 //locales?
 //section to just be a tip calculator?
 //remember users(show up while typing?)
-//3 of same item - make easier to copy item. - OR could do when you're adding an item - have quanity signifying that different steak for each payer who wants their own.
-//Make it so when you select an item with a payer already(split/shared), show..quantity..1, or split with??
-//need name property in payer total object? - re think design. 
 //Make display good - auto layout - struts..etc
+//Make only numbers and decimals come up when on quantities(quantity and cost of item)
 
-//split type section? - split bill equally/unequally
-// When there are more than 1 payers, if none are attached to an item, will show the error message 3 times on one screen
+
+//3 of same item - make easier to copy item. - OR could do when you're adding an item - have quanity signifying that different steak for each payer who wants their own.
+
 
 #import <UIKit/UIKit.h>
 
