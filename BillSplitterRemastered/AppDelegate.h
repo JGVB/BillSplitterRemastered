@@ -26,8 +26,6 @@
 //Instruction page - maybe put it on the splash or menu?
 //Make display good - auto layout - struts..etc
 
-order of extras being applied still are messed up...number combinations just don't make sense.
-
 
 #import <UIKit/UIKit.h>
 

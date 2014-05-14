@@ -48,16 +48,6 @@
 
 
 /**
- * clearPayerObjects: This function is needed to clear the PTOs when calculate is clicked so the numbers don't interfer with eachother if user goes back to extras or payers then to calculate again. Mainly for the total.
- **/
-+(void)clearPayerObjects:(NSMutableArray *)payersIn
-{
-    for(Payer *payer in payersIn){
-        payer.payerObjectInfo = [[PayerTotalObj alloc] initWithName:payer.name];
-    }
-}
-
-/**
  * calculatePreExtrasSubTotal: Will get the subtotal of all payers before extras are applied as well as the subgrandtotal of all payers
  **/
 +(NSNumber *)calculatePreExtrasSubTotal:(NSMutableArray *)payersIn andItems:(NSMutableArray *)itemsIn splitEvenly:(BOOL)evenly
@@ -115,14 +105,30 @@
 +(NSNumber *)addExtraswithExtras:(NSMutableDictionary *)extrasIn andSubGrandTotal:(double)subGrandTotalIn andPayers:(NSMutableArray *)payersIn
 {
     //loop through all ptos and do extras
+     //Extra charges
+    double grandAfterExtraCharges = 0;
+    for(Payer *payer in payersIn){
+        double currentFlatPercentShareOfTotal = payer.payerObjectInfo.subtotal/ subGrandTotalIn;
+        NSString *extraCharges = [extrasIn objectForKey:@"Extra Charges"];
+        if(extraCharges == nil){
+            extraCharges = @"0";
+        } else {
+            [payer.payerObjectInfo addExtraApplied:(currentFlatPercentShareOfTotal * [extraCharges doubleValue]) withKey:@"Extra Charges Applied"];
+        }
+        double tempSub = payer.payerObjectInfo.subtotal;
+        tempSub = tempSub + (currentFlatPercentShareOfTotal * [extraCharges doubleValue]);
+        payer.payerObjectInfo.total = tempSub;
+        grandAfterExtraCharges = grandAfterExtraCharges + tempSub;
+    }
     
+    
+    //Flat Discount
     double grandAfterDiscounts = 0;
     for(Payer *payer in payersIn){
         
-        //Flat Discount
         NSString *flatDiscount = [extrasIn objectForKey:@"Flat Discount"];
-        double currentFlatPercentShareOfTotal = payer.payerObjectInfo.subtotal/ subGrandTotalIn;
-        double tempSub = payer.payerObjectInfo.subtotal;
+        double currentFlatPercentShareOfTotal = payer.payerObjectInfo.total/ grandAfterExtraCharges;
+        double tempSub = payer.payerObjectInfo.total;
         
         if(flatDiscount == nil){
             flatDiscount = @"0";
@@ -144,27 +150,11 @@
         grandAfterDiscounts = grandAfterDiscounts + tempSub;
     }
     
-    //Extra charges
-    double grandAfterExtraCharges = 0;
-        for(Payer *payer in payersIn){
-        double currentFlatPercentShareOfTotal = payer.payerObjectInfo.total/ grandAfterDiscounts;
-        NSString *extraCharges = [extrasIn objectForKey:@"Extra Charges"];
-        if(extraCharges == nil){
-            extraCharges = @"0";
-        } else {
-            [payer.payerObjectInfo addExtraApplied:(currentFlatPercentShareOfTotal * [extraCharges doubleValue]) withKey:@"Extra Charges Applied"];
-        }
-        double tempSub = payer.payerObjectInfo.total;
-        tempSub = tempSub + (currentFlatPercentShareOfTotal * [extraCharges doubleValue]);
-        payer.payerObjectInfo.total = tempSub;
-        grandAfterExtraCharges = grandAfterExtraCharges + tempSub;
-
-    }
     
     //Tax
     double grandAfterTax = 0;
     for(Payer *payer in payersIn){
-        double currentFlatPercentShareOfTotal = payer.payerObjectInfo.total/ grandAfterExtraCharges;
+        double currentFlatPercentShareOfTotal = payer.payerObjectInfo.total/ grandAfterDiscounts;
         NSString *tax = [extrasIn objectForKey:@"Tax (Amount)"];
         if(tax == nil){
             tax = @"0";
