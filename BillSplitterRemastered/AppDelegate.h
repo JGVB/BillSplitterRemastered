@@ -24,7 +24,8 @@
 //section to just be a tip calculator?
 //remember users(show up while typing?)
 //Instruction page - maybe put it on the splash or menu?
-//Make display good - auto layout - struts..etc
+
+
 
 
 #import <UIKit/UIKit.h>
