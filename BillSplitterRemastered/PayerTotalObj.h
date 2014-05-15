@@ -19,5 +19,6 @@
 
 -(id)initWithName:(NSString *)nameIn;
 -(void)addExtraApplied:(double)extraIn withKey:(NSString *)keyNameIn;
+-(id)init;
 
 @end

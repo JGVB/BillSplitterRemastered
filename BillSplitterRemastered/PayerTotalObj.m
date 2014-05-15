@@ -17,6 +17,17 @@
 @synthesize listOfExtrasApplied = _listOfExtrasApplied;
 @synthesize percentShareOfTotal = _percentShareOfTotal;
 
+-(id)init
+{
+    if(self = [super init]){
+        self.name = @"no name";
+        self.total = 0;
+        self.sharedItemsAndSplitNumber = [[NSMutableDictionary alloc] init];
+        self.listOfExtrasApplied = [[NSMutableDictionary alloc] init];
+    }
+    return self;
+}
+
 -(id)initWithName:(NSString *)nameIn
 {
     if(self = [super init]){

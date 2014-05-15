@@ -5,10 +5,6 @@
 //  Created by James VanBeverhoudt on 2/12/14.
 //  Copyright (c) 2014 noOrg. All rights reserved.
 //
-//give custom classes initial initializers - init
-//Make sure there are no retain cycles - strong pointer to strong pointer (use Leaks tool)
-// Extras
-//Add model aspect to flow chart(data)
 //Unit testing!
 //Cool graphics - tableview background image
 //Background
@@ -17,11 +13,9 @@
 //handle all the states - foreground, background, exit
 //core data?
 //add from contacts payers
-//default tips?
-//Change calculate button to split?
+//default tips /section to just be a tip calculator?
 //local currencies
 //locales?
-//section to just be a tip calculator?
 //remember users(show up while typing?)
 //Instruction page - maybe put it on the splash or menu?
 

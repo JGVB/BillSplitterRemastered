@@ -329,7 +329,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Items" id="3Wt-Bk-QTy">
-                        <barButtonItem key="leftBarButtonItem" title="Calculate Total" id="wwV-gP-COs">
+                        <barButtonItem key="leftBarButtonItem" title="Split!" id="wwV-gP-COs">
                             <connections>
                                 <action selector="bCalculateTotal:" destination="Yuf-0J-cnm" id="UR7-5m-nnH"/>
                             </connections>
@@ -487,7 +487,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Payers" id="h3v-cY-hgS">
-                        <barButtonItem key="leftBarButtonItem" title="Calculate Total" id="mFI-xa-HhJ">
+                        <barButtonItem key="leftBarButtonItem" title="Split!" id="mFI-xa-HhJ">
                             <connections>
                                 <action selector="bCalculateTotal:" destination="63C-Iv-YCZ" id="vfA-xE-Efq"/>
                             </connections>
@@ -732,7 +732,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Extras" id="NaG-KK-rvV">
-                        <barButtonItem key="leftBarButtonItem" title="Calculate Total" id="dbM-ZU-BoE">
+                        <barButtonItem key="leftBarButtonItem" title="Split!" id="dbM-ZU-BoE">
                             <connections>
                                 <action selector="bCalculateTotal:" destination="Yrp-cU-5pp" id="CH1-Fa-oUW"/>
                             </connections>
@@ -823,6 +823,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="dL4-4c-PF5"/>
+        <segue reference="Vwx-YW-I3O"/>
     </inferredMetricsTieBreakers>
 </document>
