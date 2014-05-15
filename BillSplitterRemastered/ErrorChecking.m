@@ -58,8 +58,8 @@ NSString *ERR9 = @"Please enter a quantity between 0 and 21.";
     }
     
     //Check to see if name is already in payer list
-    for(Payer *item in allPayersIn){
-        if([item.name caseInsensitiveCompare:nameIn] == NSOrderedSame){ //Name already in payer list, no repeats
+    for(Payer *payer in allPayersIn){
+        if([payer.name caseInsensitiveCompare:nameIn] == NSOrderedSame){ //Name already in payer list, no repeats
             [errorMessages addObject:ERR2];
         }
     }
