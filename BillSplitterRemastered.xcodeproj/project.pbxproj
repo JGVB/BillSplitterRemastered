@@ -36,6 +36,8 @@
 		70B8B58418AC4DBA0043395D /* TotalsDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B8B58318AC4DBA0043395D /* TotalsDisplayViewController.m */; };
 		70B8B58718AC4DCC0043395D /* PayersDetailsDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B8B58618AC4DCC0043395D /* PayersDetailsDisplayViewController.m */; };
 		70CF704A192674E600608D68 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CF7049192674E600608D68 /* TabBarViewController.m */; };
+		70CF705519267A1600608D68 /* billSplitter640x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 70CF705319267A1600608D68 /* billSplitter640x1136.png */; };
+		70CF705619267A1600608D68 /* billSplitter640x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 70CF705419267A1600608D68 /* billSplitter640x960.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +100,8 @@
 		70B8B58618AC4DCC0043395D /* PayersDetailsDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayersDetailsDisplayViewController.m; sourceTree = "<group>"; };
 		70CF7048192674E600608D68 /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
 		70CF7049192674E600608D68 /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
+		70CF705319267A1600608D68 /* billSplitter640x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = billSplitter640x1136.png; sourceTree = "<group>"; };
+		70CF705419267A1600608D68 /* billSplitter640x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = billSplitter640x960.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +177,8 @@
 		70B8B53518AC050C0043395D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				70CF705319267A1600608D68 /* billSplitter640x1136.png */,
+				70CF705419267A1600608D68 /* billSplitter640x960.png */,
 				70B8B53618AC050C0043395D /* BillSplitterRemastered-Info.plist */,
 				70B8B53718AC050C0043395D /* InfoPlist.strings */,
 				70B8B53A18AC050C0043395D /* main.m */,
@@ -355,8 +361,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				70B8B54718AC050C0043395D /* Images.xcassets in Resources */,
+				70CF705519267A1600608D68 /* billSplitter640x1136.png in Resources */,
 				70B8B53918AC050C0043395D /* InfoPlist.strings in Resources */,
 				70B8B54218AC050C0043395D /* Main.storyboard in Resources */,
+				70CF705619267A1600608D68 /* billSplitter640x960.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,7 +524,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -532,7 +539,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
