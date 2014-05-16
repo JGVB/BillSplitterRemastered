@@ -5,6 +5,9 @@
 //  Created by James VanBeverhoudt on 2/12/14.
 //  Copyright (c) 2014 noOrg. All rights reserved.
 //
+
+//TODO:
+
 //Unit testing!
 //Splash screen - bill getting split by a zipper
 //If you respond to the the selection of a cell by pushing a new view controller onto the navigation controller’s stack, you should deselect the cell (with animation) when the view controller is popped off the stack.

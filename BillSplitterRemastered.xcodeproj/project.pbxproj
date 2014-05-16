@@ -35,6 +35,7 @@
 		70B8B58118AC48970043395D /* SelectItemsPayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B8B58018AC48970043395D /* SelectItemsPayersViewController.m */; };
 		70B8B58418AC4DBA0043395D /* TotalsDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B8B58318AC4DBA0043395D /* TotalsDisplayViewController.m */; };
 		70B8B58718AC4DCC0043395D /* PayersDetailsDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B8B58618AC4DCC0043395D /* PayersDetailsDisplayViewController.m */; };
+		70CF704A192674E600608D68 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CF7049192674E600608D68 /* TabBarViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,8 @@
 		70B8B58318AC4DBA0043395D /* TotalsDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TotalsDisplayViewController.m; sourceTree = "<group>"; };
 		70B8B58518AC4DCC0043395D /* PayersDetailsDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayersDetailsDisplayViewController.h; sourceTree = "<group>"; };
 		70B8B58618AC4DCC0043395D /* PayersDetailsDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayersDetailsDisplayViewController.m; sourceTree = "<group>"; };
+		70CF7048192674E600608D68 /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
+		70CF7049192674E600608D68 /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +160,8 @@
 				70B8B53D18AC050C0043395D /* AppDelegate.h */,
 				70B8B53E18AC050C0043395D /* AppDelegate.m */,
 				70B8B54018AC050C0043395D /* Main.storyboard */,
+				70CF7048192674E600608D68 /* TabBarViewController.h */,
+				70CF7049192674E600608D68 /* TabBarViewController.m */,
 				70B8B54618AC050C0043395D /* Images.xcassets */,
 				70B8B56E18AC12FD0043395D /* Calculate Clicked */,
 				70B8B56318AC129E0043395D /* Tabs */,
@@ -386,6 +391,7 @@
 				7067FD2019182816008AF412 /* PayerDetailsTableViewCell.m in Sources */,
 				70B8B56918AC12D00043395D /* ItemsTabViewController.m in Sources */,
 				70B8B57E18AC48890043395D /* SelectPayersItemsViewController.m in Sources */,
+				70CF704A192674E600608D68 /* TabBarViewController.m in Sources */,
 				70B8B57818AC36460043395D /* ItemSelectTableCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

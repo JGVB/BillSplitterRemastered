@@ -13,7 +13,6 @@
 @property(nonatomic, weak, readwrite)IBOutlet UILabel *lItemName; //label with item name
 @property(nonatomic, weak, readwrite)IBOutlet UILabel *lItemCost; //label with item cost
 @property(nonatomic, weak, readwrite)IBOutlet UILabel *lItemSharedWith; //Label having people shared with
-@property (weak, nonatomic) IBOutlet UILabel *lSplitWith; //Label having the actual names
 @property (weak, nonatomic) IBOutlet UILabel *lCostEach; //Label with cost for each
 @property (weak, nonatomic) IBOutlet UILabel *lEach; //Word each
 

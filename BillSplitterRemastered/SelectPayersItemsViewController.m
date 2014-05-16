@@ -87,7 +87,6 @@
     if([sharedNames count] > 0){ //If there are people in this shared list, we must display labels and create string for efficient displaying, and each cost
         //Show the two labels needed when split items
         cell.lItemSharedWith.hidden = NO;
-        cell.lSplitWith.hidden = NO;
         cell.lCostEach.hidden = NO;
         cell.lEach.hidden = NO;
         
@@ -105,9 +104,8 @@
         cell.lCostEach.text = [@"$" stringByAppendingString:formattedCost];
     } else {
         cell.lItemSharedWith.hidden = YES;
-        cell.lSplitWith.hidden = YES;
     }
-    cell.lItemSharedWith.text = sharedStringNames;
+    cell.lItemSharedWith.text = [@"Split With: " stringByAppendingString:sharedStringNames];
     
     //Set checkmark accessory
     if([self.selectedPayer.items containsObject:cellsItem]){ //If the cell is in the selected payer's item list - put checkmark on it!

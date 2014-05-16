@@ -14,7 +14,6 @@
 @synthesize lItemCost = _lItemCost;
 @synthesize lItemSharedWith = _lItemSharedWith;
 @synthesize lCostEach = _lCostEach;
-@synthesize lSplitWith = _lSplitWith;
 @synthesize lEach = _lEach;
 
 
