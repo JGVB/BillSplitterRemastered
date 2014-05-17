@@ -56,7 +56,10 @@
     [super viewDidLoad];
     //Initiate calculations
     NSMutableArray *payerTotalObjects;
-
+    
+    //Reset PTO so values don't carry over
+    [Calculations clearPayerObjects:self.payersDataSource];
+    
     if([[self.extrasDataSource objectForKey:@"how_to_split"] isEqualToString:@"Unevenly"]){ //By default, bill is split unevenly
         payerTotalObjects = [Calculations performCalculationsWithPayersSplitUnevenly:self.payersDataSource andItems:self.itemsDataSource andExtras:self.extrasDataSource]; //Returns an array, index 0 - array of updated payer objects after calculations.  index 1 - Grand total to display in tableView
     } else { //user wants the bill split equally between all payers
@@ -67,6 +70,13 @@
     NSString *gtString = [ErrorChecking formatNumberTo2DecimalPlaces:[NSString stringWithFormat:@"%f", gt]];
     self.grandTotal = [NSString stringWithFormat:@"$%@",gtString];
     [self.tableView reloadData]; //After payers are updated, reload tableview. Precaution
+    
+    //Tableview background image
+    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"billSplitter640x1136.png"]];
+    [tempImageView setFrame:self.tableView.frame];
+    
+    self.tableView.backgroundView = tempImageView;
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero]; //Get rid of footer so lines don't appear on tableview
 }
 
 #pragma mark - Table view data source
@@ -155,6 +165,19 @@
     }
     return cell;
 }
+
+/*
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
+{
+    //view.tintColor = [UIColor ];
+    
+    // if you have index/header text in your tableview change your index text color
+    UITableViewHeaderFooterView *headerIndexText = (UITableViewHeaderFooterView *)view;
+    [headerIndexText.textLabel setTextColor:[UIColor blackColor]];
+    
+}
+ */
+
 
 /**
  * prepareForSegue: Notifies the view controller that a segue is about to be performed.

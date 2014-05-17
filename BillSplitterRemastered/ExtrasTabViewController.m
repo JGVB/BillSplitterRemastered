@@ -66,6 +66,13 @@
     self.tfPercentDiscount.keyboardType = UIKeyboardTypeDecimalPad;
     self.tfTaxAmount.keyboardType = UIKeyboardTypeDecimalPad;
     self.tfTip.keyboardType = UIKeyboardTypeDecimalPad;
+    
+    //Tableview background image
+    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"billSplitter640x1136.png"]];
+    [tempImageView setFrame:self.tableView.frame];
+    
+    self.tableView.backgroundView = tempImageView;
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero]; //Get rid of footer so lines don't appear on tableview
 
 }
 
@@ -172,7 +179,7 @@
         NSString *textFieldData = [textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         NSMutableArray *errors = [ErrorChecking checkPositiveNonNegativeNonEmptyHasNonNumbers:textFieldData];
         if([errors count] == 0){ //No errors, add data
-        [self.extrasDataSource setObject:[ErrorChecking formatNumberTo2DecimalPlaces:textFieldData] forKey:textFieldPlaceholder];
+            [self.extrasDataSource setObject:[ErrorChecking formatNumberTo2DecimalPlaces:textFieldData] forKey:textFieldPlaceholder];
         } else { //Error with input entered, display error message
             //Save information when user gets off of text field.
             [ErrorChecking showErrorMessage:errors];
@@ -207,7 +214,17 @@
     return [textField resignFirstResponder];
 }
 
-#pragma mark - Table view data source
+#pragma mark - Table view data Delegate
+
+/*
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 30)];
+        [headerView setBackgroundColor:[UIColor blackColor]];
+    return headerView;
+}
+*/
+ 
 
 /**
  * didSelectRowAtIndexPath: Tells the delegate that the specified row is now selected. This is used for the checkmark accessory in tipping by percent or by amount.

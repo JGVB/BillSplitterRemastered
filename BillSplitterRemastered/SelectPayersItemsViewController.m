@@ -32,6 +32,17 @@
 }
 
 
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    //Tableview background image
+    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"billSplitter640x1136.png"]];
+    [tempImageView setFrame:self.tableView.frame];
+    
+    self.tableView.backgroundView = tempImageView;
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero]; //Get rid of footer so lines don't appear on tableview
+}
+
 /**
  * viewWillAppear: Notifies the view controller that its view is about to be added to a view hierarchy. Refresh table view
  **/

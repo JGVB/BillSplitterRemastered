@@ -48,6 +48,17 @@
 
 
 /**
+ * clearPayerObjects: This function is needed to clear the PTOs when calculate is clicked so the numbers don't interfer with eachother if user goes back to extras or payers then to calculate again. Mainly for the total.
+ **/
++(void)clearPayerObjects:(NSMutableArray *)payersIn
+{
+    for(Payer *payer in payersIn){
+        payer.payerObjectInfo = [[PayerTotalObj alloc] initWithName:payer.name];
+    }
+}
+
+
+/**
  * calculatePreExtrasSubTotal: Will get the subtotal of all payers before extras are applied as well as the subgrandtotal of all payers
  **/
 +(NSNumber *)calculatePreExtrasSubTotal:(NSMutableArray *)payersIn andItems:(NSMutableArray *)itemsIn splitEvenly:(BOOL)evenly

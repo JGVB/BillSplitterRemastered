@@ -30,6 +30,17 @@
 }
 
 
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    //Tableview background image
+    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"billSplitter640x1136.png"]];
+    [tempImageView setFrame:self.tableView.frame];
+    
+    self.tableView.backgroundView = tempImageView;
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero]; //Get rid of footer so lines don't appear on tableview
+}
+
 #pragma mark - Table view data source
 
 /**
