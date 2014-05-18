@@ -39,6 +39,8 @@
     UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"billSplitter640x1136.png"]];
     [tempImageView setFrame:self.tableView.frame];
     
+    self.navigationItem.title = [NSString stringWithFormat:@"Select %@'s Items", self.selectedPayer.name]; //Set the title to a more personalized title with the item selected
+    
     self.tableView.backgroundView = tempImageView;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero]; //Get rid of footer so lines don't appear on tableview
 }

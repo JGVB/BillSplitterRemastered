@@ -20,7 +20,7 @@
 //Instruction page - maybe put it on the splash or menu?
 
 //put - sign on payer details screen for discounts, also put them in the order they are applied.
-//Getting set to even split?
+//make split bill equally button on extras page more like a button? check box
 
 #import <UIKit/UIKit.h>
 
