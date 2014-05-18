@@ -60,7 +60,9 @@
     //Reset PTO so values don't carry over
     [Calculations clearPayerObjects:self.payersDataSource];
     
-    if([[self.extrasDataSource objectForKey:@"how_to_split"] isEqualToString:@"Unevenly"]){ //By default, bill is split unevenly
+    NSLog(@"how to split: %@", [self.extrasDataSource objectForKey:@"how_to_split"]);
+    
+    if([[self.extrasDataSource objectForKey:@"how_to_split"] isEqualToString:@"Unevenly"]|| [self.extrasDataSource objectForKey:@"how_to_split"] == nil){ //By default, bill is split unevenly
         payerTotalObjects = [Calculations performCalculationsWithPayersSplitUnevenly:self.payersDataSource andItems:self.itemsDataSource andExtras:self.extrasDataSource]; //Returns an array, index 0 - array of updated payer objects after calculations.  index 1 - Grand total to display in tableView
     } else { //user wants the bill split equally between all payers
         payerTotalObjects = [Calculations performCalculationsWithPayersSplitEvenly:self.payersDataSource andItems:self.itemsDataSource andExtras:self.extrasDataSource];

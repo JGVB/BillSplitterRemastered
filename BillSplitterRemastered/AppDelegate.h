@@ -19,6 +19,8 @@
 //remember users(show up while typing?)
 //Instruction page - maybe put it on the splash or menu?
 
+//put - sign on payer details screen for discounts, also put them in the order they are applied.
+//Getting set to even split?
 
 #import <UIKit/UIKit.h>
 

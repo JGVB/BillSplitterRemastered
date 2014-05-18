@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITableViewCell *cellTipByValue;
 @property (weak, nonatomic) IBOutlet UILabel *lTipByQuestionMake;
 @property(strong, nonatomic, readwrite) NSMutableArray *errorsInEditing;
+@property (weak, nonatomic) IBOutlet UITableViewCell *cellSplitBillEqually;
 
 @end
 
@@ -34,6 +35,7 @@
 @synthesize cellTipByValue = _cellTipByValue;
 @synthesize lTipByQuestionMake = _lTipByQuestionMake;
 @synthesize errorsInEditing = _errorsInEditing;
+@synthesize cellSplitBillEqually = _cellSplitBillEqually;
 
 
 
@@ -77,7 +79,6 @@
     
     self.tableView.backgroundView = tempImageView;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero]; //Get rid of footer so lines don't appear on tableview
-
 }
 
 
@@ -105,7 +106,7 @@
  **/
 - (IBAction)bCalculateTotal:(id)sender {
     //must force finish any text fields being edited when user clicks split button that way error checking is done before below error checking
-    [self.tfExtraCharges resignFirstResponder];
+    [self dismissKeyboard];
 
     if([self.errorsInEditing count] == 0){//If there are no errors, don't segue, the finishedwithEditing will take care of error handling-just give it time
         //Extract data sources from ItemsTabViewController and PayersTabViewController
@@ -130,6 +131,8 @@
  **/
 - (IBAction)bClearExtras:(id)sender {
     self.extrasDataSource = [[NSMutableDictionary alloc] init];
+    [self.extrasDataSource setObject:@"Unevenly" forKey:@"how_to_split"]; //This initially sets the bill to unevenly split because that is automatically selected by default when table is set.
+    self.cellSplitBillEqually.accessoryType = UITableViewCellAccessoryNone;
     self.tfFlatDiscount.text = @"0";
     self.tfPercentDiscount.text = @"0";
     self.tfExtraCharges.text = @"0";
