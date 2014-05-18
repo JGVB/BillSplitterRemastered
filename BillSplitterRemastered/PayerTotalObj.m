@@ -23,7 +23,7 @@
         self.name = @"no name";
         self.total = 0;
         self.sharedItemsAndSplitNumber = [[NSMutableDictionary alloc] init];
-        self.listOfExtrasApplied = [[NSMutableDictionary alloc] init];
+        self.listOfExtrasApplied = [[DisplayExtraHelper alloc] init];
     }
     return self;
 }
@@ -36,15 +36,9 @@
         self.subtotal = 0;
         self.percentShareOfTotal = 0;
         self.sharedItemsAndSplitNumber = [[NSMutableDictionary alloc] init];
-        self.listOfExtrasApplied = [[NSMutableDictionary alloc] init];
+        self.listOfExtrasApplied = [[DisplayExtraHelper alloc] init];
     }
     return self;
 }
-
--(void)addExtraApplied:(double)extraIn withKey:(NSString *)keyNameIn
-{
-    [self.listOfExtrasApplied setObject:[NSNumber numberWithDouble:extraIn] forKey:keyNameIn];
-}
-
 
 @end

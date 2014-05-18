@@ -19,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITableViewCell *cellTipByValue;
 @property (weak, nonatomic) IBOutlet UILabel *lTipByQuestionMake;
 @property(strong, nonatomic, readwrite) NSMutableArray *errorsInEditing;
-@property (weak, nonatomic) IBOutlet UITableViewCell *cellSplitBillEqually;
+@property (weak, nonatomic) IBOutlet UISwitch *sliderSplitBillEqually;
 
 @end
 
@@ -35,7 +35,7 @@
 @synthesize cellTipByValue = _cellTipByValue;
 @synthesize lTipByQuestionMake = _lTipByQuestionMake;
 @synthesize errorsInEditing = _errorsInEditing;
-@synthesize cellSplitBillEqually = _cellSplitBillEqually;
+@synthesize sliderSplitBillEqually = _sliderSplitBillEqually;
 
 
 
@@ -79,6 +79,9 @@
     
     self.tableView.backgroundView = tempImageView;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero]; //Get rid of footer so lines don't appear on tableview
+    
+    //Set slider to initially be off
+    [self.sliderSplitBillEqually setOn:NO animated:NO];
 }
 
 
@@ -125,6 +128,18 @@
     }
 }
 
+/**
+ * bSwitched: is called when user slides switch.  Will determine whether or not to split the bill evenly. If on, split evenly, if off, split unevenly.
+ **/
+- (IBAction)bSwitched:(id)sender {
+    if(self.sliderSplitBillEqually.on == YES){//User wants the bill split equally, set checkmark, add to dataSource?
+        [self.sliderSplitBillEqually setOn:YES animated:YES];
+        [self.extrasDataSource setObject:@"Evenly" forKey:@"how_to_split"];
+    } else { //if the user switches to not split the bill equally, set checkmark non, set datasource to signify split unevenly.
+        [self.sliderSplitBillEqually setOn:NO animated:YES];
+        [self.extrasDataSource setObject:@"Unevenly" forKey:@"how_to_split"];
+    }
+}
 
 /**
  * bClearExtras: Will clear all extras when user clicks button.
@@ -132,7 +147,7 @@
 - (IBAction)bClearExtras:(id)sender {
     self.extrasDataSource = [[NSMutableDictionary alloc] init];
     [self.extrasDataSource setObject:@"Unevenly" forKey:@"how_to_split"]; //This initially sets the bill to unevenly split because that is automatically selected by default when table is set.
-    self.cellSplitBillEqually.accessoryType = UITableViewCellAccessoryNone;
+    [self.sliderSplitBillEqually setOn:NO animated:NO];
     self.tfFlatDiscount.text = @"0";
     self.tfPercentDiscount.text = @"0";
     self.tfExtraCharges.text = @"0";
@@ -263,15 +278,6 @@
             theCellClicked.accessoryType = UITableViewCellAccessoryCheckmark;
             self.cellTipByPercent.accessoryType = UITableViewCellAccessoryNone;
         }
-    } else if([theCellClicked.reuseIdentifier isEqualToString:@"split_bill_equally_reuse"]){
-        if(theCellClicked.accessoryType == UITableViewCellAccessoryNone){//User wants the bill split equally, set checkmark, add to dataSource?
-            theCellClicked.accessoryType = UITableViewCellAccessoryCheckmark;
-            [self.extrasDataSource setObject:@"Evenly" forKey:@"how_to_split"];
-        } else { //if the user switches to not split the bill equally, set checkmark non, set datasource to signify split unevenly.
-            theCellClicked.accessoryType = UITableViewCellAccessoryNone;
-            [self.extrasDataSource setObject:@"Unevenly" forKey:@"how_to_split"];
-        }
-    
     }
 }
 

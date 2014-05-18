@@ -10,6 +10,7 @@
 #import "Item.h"
 #import "ErrorChecking.h"
 #import "PayerTotalObj.h"
+#import "DisplayExtraHelper.h"
 #import "Payer.h"
 
 @implementation Calculations
@@ -124,7 +125,7 @@
         if(extraCharges == nil){
             extraCharges = @"0";
         } else {
-            [payer.payerObjectInfo addExtraApplied:(currentFlatPercentShareOfTotal * [extraCharges doubleValue]) withKey:@"Extra Charges Applied"];
+            [payer.payerObjectInfo.listOfExtrasApplied addObject:(currentFlatPercentShareOfTotal * [extraCharges doubleValue]) withName:@"Extra Charges Applied" withSign:@"+"];
         }
         double tempSub = payer.payerObjectInfo.subtotal;
         tempSub = tempSub + (currentFlatPercentShareOfTotal * [extraCharges doubleValue]);
@@ -144,7 +145,7 @@
         if(flatDiscount == nil){
             flatDiscount = @"0";
         } else {
-            [payer.payerObjectInfo addExtraApplied:(currentFlatPercentShareOfTotal * [flatDiscount doubleValue]) withKey:@"Flat Discount Applied"];
+            [payer.payerObjectInfo.listOfExtrasApplied addObject:(currentFlatPercentShareOfTotal * [flatDiscount doubleValue]) withName:@"Flat Discount Applied" withSign:@"-"];
         }
 
         tempSub = tempSub - (currentFlatPercentShareOfTotal * [flatDiscount doubleValue]);
@@ -154,7 +155,7 @@
         if(percentDiscount == nil){
             percentDiscount = @"0";
         } else {
-            [payer.payerObjectInfo addExtraApplied:(tempSub * ([percentDiscount doubleValue] / 100)) withKey:@"Percent Discount Applied"];
+            [payer.payerObjectInfo.listOfExtrasApplied addObject:(tempSub * ([percentDiscount doubleValue] / 100)) withName:@"Percent Discount Applied" withSign:@"-"];
         }
         tempSub = tempSub - (tempSub * ([percentDiscount doubleValue] / 100));
       
@@ -171,7 +172,7 @@
         if(tax == nil){
             tax = @"0";
         } else {
-            [payer.payerObjectInfo addExtraApplied:(currentFlatPercentShareOfTotal * [tax doubleValue]) withKey:@"Tax Applied"];
+            [payer.payerObjectInfo.listOfExtrasApplied addObject:(currentFlatPercentShareOfTotal * [tax doubleValue]) withName:@"Tax Applied" withSign:@"+"];
         }
 
         double tempSub = payer.payerObjectInfo.total;
@@ -203,7 +204,7 @@
         }
         
         if(!tipNull){
-            [payer.payerObjectInfo addExtraApplied:useAmount withKey:@"Tip Applied"];
+            [payer.payerObjectInfo.listOfExtrasApplied addObject:useAmount withName:@"Tip Applied" withSign:@"+"];
         }
         payer.payerObjectInfo.total = tempSub;
         grandafterTip = grandafterTip + tempSub;

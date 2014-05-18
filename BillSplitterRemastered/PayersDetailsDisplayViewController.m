@@ -10,6 +10,8 @@
 
 @interface PayersDetailsDisplayViewController ()
 
+@property(nonatomic, strong, readwrite)NSMutableArray *displayingExtraKeysArray;//Holds the keys to the extra data in the order to be displayed
+
 @end
 
 @implementation PayersDetailsDisplayViewController
@@ -87,7 +89,7 @@
             sectionName = [NSString stringWithFormat:@"Bill for %@", self.selectedPayerTotal.name];
             break;
         case 1: //Items and their shares section
-            sectionName = ([self.selectedPayerTotal.payerObjectInfo.sharedItemsAndSplitNumber count] == 1) ? @"1 Item" : [NSString stringWithFormat:@"%lu Items", [self.selectedPayerTotal.payerObjectInfo.sharedItemsAndSplitNumber count]];
+            sectionName = ([self.selectedPayerTotal.payerObjectInfo.sharedItemsAndSplitNumber count] == 1) ? @"1 Item" : [NSString stringWithFormat:@"%lu Items", (unsigned long)[self.selectedPayerTotal.payerObjectInfo.sharedItemsAndSplitNumber count]];
             break;
         case 2: //Subtotal and extras section
             sectionName = [NSString stringWithFormat:@"Subtotal: $%@", [ErrorChecking formatNumberTo2DecimalPlaces:[NSString stringWithFormat:@"%f",self.selectedPayerTotal.payerObjectInfo.subtotal]]];
@@ -114,6 +116,12 @@
         cell = [[PayerDetailsTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
+    //extra charges
+    //Flat discount
+    //percent discount
+    //tax
+    //tip
+    
     // Configure the cell...
     //Items
     if(indexPath.section == 1){ //Section 1 contains all the payer's items and how many people the selected payer splits it with.
@@ -139,13 +147,13 @@
         cost = [ErrorChecking formatNumberTo2DecimalPlaces:cost];
         cell.lCost.text = [@"$" stringByAppendingString:cost];
     
-    } else if(indexPath.section == 2){ //Section 2 has subtotal in header and extras in tableview rows
-        NSString *titleLabel = [[self.selectedPayerTotal.payerObjectInfo.listOfExtrasApplied allKeys] objectAtIndex:indexPath.row];//gets key of extra applied
-        NSNumber *detailLabel = [self.selectedPayerTotal.payerObjectInfo.listOfExtrasApplied objectForKey:titleLabel];//gets object of extra applied
+    } else if(indexPath.section == 2){ //Subtotal in header and extras in tableview rows
+        NSString *titleLabel = [self.selectedPayerTotal.payerObjectInfo.listOfExtrasApplied nameAtIndex:indexPath.row];//gets key of extra applied
+        NSNumber *detailLabel = [self.selectedPayerTotal.payerObjectInfo.listOfExtrasApplied objectAtIndex:indexPath.row];//gets object of extra applied
         NSString *stringDetailLabelCost = [ErrorChecking formatNumberTo2DecimalPlaces:[detailLabel stringValue]];
         titleLabel = [titleLabel stringByAppendingString:@":"];
         cell.lNumOfPeople.text = titleLabel;
-        cell.lCost.text = [@"$" stringByAppendingString:stringDetailLabelCost];
+        cell.lCost.text = [[self.selectedPayerTotal.payerObjectInfo.listOfExtrasApplied signAtIndex:indexPath.row] stringByAppendingString:[@"$" stringByAppendingString:stringDetailLabelCost]];
     } else if(indexPath.section == 3){ //Section 3 has the total-> as well as the percent share of total of the payer
         cell.lNumOfPeople.text = @"Percent share of total:";
         NSString *stringPercent =  [ErrorChecking formatNumberTo2DecimalPlaces:[NSString stringWithFormat:@"%f", (self.selectedPayerTotal.payerObjectInfo.percentShareOfTotal*100)]];

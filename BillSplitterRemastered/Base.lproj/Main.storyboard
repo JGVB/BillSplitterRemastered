@@ -564,12 +564,19 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Split Bill Equally" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bE7-Xk-X0t">
-                                                    <rect key="frame" x="92" y="12" width="136" height="25"/>
+                                                    <rect key="frame" x="11" y="12" width="136" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L8q-Kk-Iq3">
+                                                    <rect key="frame" x="251" y="9" width="51" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="bSwitched:" destination="Yrp-cU-5pp" eventType="valueChanged" id="wc0-6S-pmr"/>
+                                                    </connections>
+                                                </switch>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.95938297189999999" green="0.95784970349999998" blue="0.89996606079999997" alpha="0.92000000000000004" colorSpace="calibratedRGB"/>
@@ -794,10 +801,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="cellSplitBillEqually" destination="oKB-L3-lRi" id="0H4-ML-ny2"/>
                         <outlet property="cellTipByPercent" destination="YLE-le-VXV" id="fZN-fd-VKx"/>
                         <outlet property="cellTipByValue" destination="ktA-Qs-RCT" id="b66-wl-Xqb"/>
                         <outlet property="lTipByQuestionMake" destination="d2a-vg-b98" id="uYm-sI-f5X"/>
+                        <outlet property="sliderSplitBillEqually" destination="L8q-Kk-Iq3" id="d38-Dg-wtJ"/>
                         <outlet property="tfExtraCharges" destination="v51-FL-5PK" id="s7X-fs-3md"/>
                         <outlet property="tfFlatDiscount" destination="yKH-v4-kNx" id="Sl7-hR-4ZF"/>
                         <outlet property="tfPercentDiscount" destination="Xlt-20-Fyk" id="1QD-gN-ggF"/>
@@ -834,7 +841,7 @@
         <scene sceneID="rVw-Mv-Pu0">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="heG-KA-0TN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Payers" id="h3k-Me-HiL"/>
+                    <tabBarItem key="tabBarItem" title="Payers" image="Default.png" id="h3k-Me-HiL"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="FX2-xZ-z4z">
@@ -871,6 +878,9 @@
             <point key="canvasLocation" x="496" y="220"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Default.png" width="460" height="330"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

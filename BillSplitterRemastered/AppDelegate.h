@@ -17,10 +17,12 @@
 //local currencies
 //locales?
 //remember users(show up while typing?)
-//Instruction page - maybe put it on the splash or menu?
+//Instruction page - maybe put it on the splash or menu? - put in own tab
 
-//put - sign on payer details screen for discounts, also put them in the order they are applied.
-//make split bill equally button on extras page more like a button? check box
+//get icons of payers, extras, and items
+//set splash screen(jonathan)
+//set icon (jonathan)
+//get new tableview background (anthony)
 
 #import <UIKit/UIKit.h>
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		700C06B819102CB600831022 /* FromItemSelectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 700C06B719102CB600831022 /* FromItemSelectTableViewCell.m */; };
+		702D031219286A4700B44486 /* DisplayExtraHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 702D031119286A4700B44486 /* DisplayExtraHelper.m */; };
 		7042F85619145047002B8606 /* Calculations.m in Sources */ = {isa = PBXBuildFile; fileRef = 7042F85519145047002B8606 /* Calculations.m */; };
 		7042F859191463A3002B8606 /* PayerTotalObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 7042F858191463A3002B8606 /* PayerTotalObj.m */; };
 		7067FD2019182816008AF412 /* PayerDetailsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7067FD1F19182816008AF412 /* PayerDetailsTableViewCell.m */; };
@@ -54,6 +55,8 @@
 /* Begin PBXFileReference section */
 		700C06B619102CB600831022 /* FromItemSelectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FromItemSelectTableViewCell.h; sourceTree = "<group>"; };
 		700C06B719102CB600831022 /* FromItemSelectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FromItemSelectTableViewCell.m; sourceTree = "<group>"; };
+		702D031019286A4700B44486 /* DisplayExtraHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DisplayExtraHelper.h; path = ../DisplayExtraHelper.h; sourceTree = "<group>"; };
+		702D031119286A4700B44486 /* DisplayExtraHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DisplayExtraHelper.m; path = ../DisplayExtraHelper.m; sourceTree = "<group>"; };
 		7042F85419145047002B8606 /* Calculations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calculations.h; sourceTree = "<group>"; };
 		7042F85519145047002B8606 /* Calculations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Calculations.m; sourceTree = "<group>"; };
 		7042F857191463A3002B8606 /* PayerTotalObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayerTotalObj.h; sourceTree = "<group>"; };
@@ -130,9 +133,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		702D031519287E0B00B44486 /* Icon Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Icon Images";
+			sourceTree = "<group>";
+		};
 		70B8B52218AC050A0043395D = {
 			isa = PBXGroup;
 			children = (
+				702D031519287E0B00B44486 /* Icon Images */,
 				70CF70591927BB4200608D68 /* Launch Images */,
 				70B8B53418AC050B0043395D /* BillSplitterRemastered */,
 				70B8B55318AC050C0043395D /* BillSplitterRemasteredTests */,
@@ -195,6 +206,8 @@
 				7042F85519145047002B8606 /* Calculations.m */,
 				7042F857191463A3002B8606 /* PayerTotalObj.h */,
 				7042F858191463A3002B8606 /* PayerTotalObj.m */,
+				702D031019286A4700B44486 /* DisplayExtraHelper.h */,
+				702D031119286A4700B44486 /* DisplayExtraHelper.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -408,6 +421,7 @@
 				7042F859191463A3002B8606 /* PayerTotalObj.m in Sources */,
 				70B8B58118AC48970043395D /* SelectItemsPayersViewController.m in Sources */,
 				70B8B56D18AC12E50043395D /* ExtrasTabViewController.m in Sources */,
+				702D031219286A4700B44486 /* DisplayExtraHelper.m in Sources */,
 				7067FD2019182816008AF412 /* PayerDetailsTableViewCell.m in Sources */,
 				70B8B56918AC12D00043395D /* ItemsTabViewController.m in Sources */,
 				70B8B57E18AC48890043395D /* SelectPayersItemsViewController.m in Sources */,
