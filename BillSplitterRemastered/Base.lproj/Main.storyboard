@@ -821,7 +821,7 @@
         <scene sceneID="fPg-Mv-dRC">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tQA-Oi-tvf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Items" id="Pnc-zG-9cS"/>
+                    <tabBarItem key="tabBarItem" title="Items" image="hot_dog-128.png" id="Pnc-zG-9cS"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="EmI-Ix-qYW">
@@ -841,7 +841,7 @@
         <scene sceneID="rVw-Mv-Pu0">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="heG-KA-0TN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Payers" image="Default.png" id="h3k-Me-HiL"/>
+                    <tabBarItem key="tabBarItem" title="Payers" image="personPayer1.png" id="h3k-Me-HiL"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="FX2-xZ-z4z">
@@ -861,7 +861,7 @@
         <scene sceneID="MST-od-y7e">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rsw-3N-eiB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Extras" id="t1E-8P-hZq"/>
+                    <tabBarItem key="tabBarItem" title="Extras" image="star-128.png" id="t1E-8P-hZq"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bxO-9P-AyV">
@@ -879,7 +879,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Default.png" width="460" height="330"/>
+        <image name="hot_dog-128.png" width="30" height="30"/>
+        <image name="personPayer1.png" width="30" height="30"/>
+        <image name="star-128.png" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

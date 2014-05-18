@@ -41,9 +41,17 @@
     self.navigationItem.title = [NSString stringWithFormat:@"Select %@'s Payers", self.selectedItem.name]; //Set the title to a more personalized title with the item selected
     
     //Tableview background image
-    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"billSplitter640x1136.png"]];
+    UIImageView *tempImageView;
+    if ([[UIScreen mainScreen] bounds].size.height == 568)
+    {
+        tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"billSplitterTableView_640x1136.png"]];
+    }
+    else
+    {
+        tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"billSplitterTableView_640x960.png"]];
+        
+    }
     [tempImageView setFrame:self.tableView.frame];
-    
     self.tableView.backgroundView = tempImageView;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero]; //Get rid of footer so lines don't appear on tableview
 }

@@ -19,10 +19,8 @@
 //remember users(show up while typing?)
 //Instruction page - maybe put it on the splash or menu? - put in own tab
 
-//get icons of payers, extras, and items
 //set splash screen(jonathan)
 //set icon (jonathan)
-//get new tableview background (anthony)
 
 #import <UIKit/UIKit.h>
 

@@ -77,7 +77,7 @@ NSString *ERR9 = @"Please enter a quantity between 0 and 21.";
     if([errorMessages count] == 0){ //if no errors, check if below 31
         NSInteger newVal = [quantityIn integerValue];
         if(newVal > 20 || newVal < 1){
-            newestSaved = [NSString stringWithFormat:@"%lu", newVal];
+            newestSaved = [NSString stringWithFormat:@"%lu", (long)newVal];
             [errorMessages addObject:ERR9];
         } else { //Error and reset input
             newestSaved = quantityIn;

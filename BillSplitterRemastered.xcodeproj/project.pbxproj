@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		700C06B819102CB600831022 /* FromItemSelectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 700C06B719102CB600831022 /* FromItemSelectTableViewCell.m */; };
 		702D031219286A4700B44486 /* DisplayExtraHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 702D031119286A4700B44486 /* DisplayExtraHelper.m */; };
+		702D032A1929622400B44486 /* billSplitterTableView_640x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 702D03281929622400B44486 /* billSplitterTableView_640x1136.png */; };
+		702D032B1929622400B44486 /* billSplitterTableView_640x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 702D03291929622400B44486 /* billSplitterTableView_640x960.png */; };
+		702D0331192972AA00B44486 /* personPayer1.png in Resources */ = {isa = PBXBuildFile; fileRef = 702D0330192972AA00B44486 /* personPayer1.png */; };
+		702D0333192974FD00B44486 /* hot_dog-128.png in Resources */ = {isa = PBXBuildFile; fileRef = 702D0332192974FD00B44486 /* hot_dog-128.png */; };
+		702D03351929760F00B44486 /* star-128.png in Resources */ = {isa = PBXBuildFile; fileRef = 702D03341929760F00B44486 /* star-128.png */; };
 		7042F85619145047002B8606 /* Calculations.m in Sources */ = {isa = PBXBuildFile; fileRef = 7042F85519145047002B8606 /* Calculations.m */; };
 		7042F859191463A3002B8606 /* PayerTotalObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 7042F858191463A3002B8606 /* PayerTotalObj.m */; };
 		7067FD2019182816008AF412 /* PayerDetailsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7067FD1F19182816008AF412 /* PayerDetailsTableViewCell.m */; };
@@ -37,9 +42,6 @@
 		70B8B58418AC4DBA0043395D /* TotalsDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B8B58318AC4DBA0043395D /* TotalsDisplayViewController.m */; };
 		70B8B58718AC4DCC0043395D /* PayersDetailsDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B8B58618AC4DCC0043395D /* PayersDetailsDisplayViewController.m */; };
 		70CF704A192674E600608D68 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CF7049192674E600608D68 /* TabBarViewController.m */; };
-		70CF705519267A1600608D68 /* billSplitter640x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 70CF705319267A1600608D68 /* billSplitter640x1136.png */; };
-		70CF705619267A1600608D68 /* billSplitter640x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 70CF705419267A1600608D68 /* billSplitter640x960.png */; };
-		70CF70581927B93000608D68 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70CF70571927B93000608D68 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,11 @@
 		700C06B719102CB600831022 /* FromItemSelectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FromItemSelectTableViewCell.m; sourceTree = "<group>"; };
 		702D031019286A4700B44486 /* DisplayExtraHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DisplayExtraHelper.h; path = ../DisplayExtraHelper.h; sourceTree = "<group>"; };
 		702D031119286A4700B44486 /* DisplayExtraHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DisplayExtraHelper.m; path = ../DisplayExtraHelper.m; sourceTree = "<group>"; };
+		702D03281929622400B44486 /* billSplitterTableView_640x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = billSplitterTableView_640x1136.png; sourceTree = "<group>"; };
+		702D03291929622400B44486 /* billSplitterTableView_640x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = billSplitterTableView_640x960.png; sourceTree = "<group>"; };
+		702D0330192972AA00B44486 /* personPayer1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = personPayer1.png; sourceTree = "<group>"; };
+		702D0332192974FD00B44486 /* hot_dog-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hot_dog-128.png"; sourceTree = "<group>"; };
+		702D03341929760F00B44486 /* star-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-128.png"; sourceTree = "<group>"; };
 		7042F85419145047002B8606 /* Calculations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calculations.h; sourceTree = "<group>"; };
 		7042F85519145047002B8606 /* Calculations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Calculations.m; sourceTree = "<group>"; };
 		7042F857191463A3002B8606 /* PayerTotalObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayerTotalObj.h; sourceTree = "<group>"; };
@@ -104,9 +111,6 @@
 		70B8B58618AC4DCC0043395D /* PayersDetailsDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayersDetailsDisplayViewController.m; sourceTree = "<group>"; };
 		70CF7048192674E600608D68 /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
 		70CF7049192674E600608D68 /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
-		70CF705319267A1600608D68 /* billSplitter640x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = billSplitter640x1136.png; path = BillSplitterRemastered/billSplitter640x1136.png; sourceTree = "<group>"; };
-		70CF705419267A1600608D68 /* billSplitter640x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = billSplitter640x960.png; path = BillSplitterRemastered/billSplitter640x960.png; sourceTree = "<group>"; };
-		70CF70571927B93000608D68 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,15 +140,36 @@
 		702D031519287E0B00B44486 /* Icon Images */ = {
 			isa = PBXGroup;
 			children = (
+				702D03341929760F00B44486 /* star-128.png */,
+				702D0332192974FD00B44486 /* hot_dog-128.png */,
+				702D0330192972AA00B44486 /* personPayer1.png */,
 			);
 			name = "Icon Images";
+			sourceTree = "<group>";
+		};
+		702D0326192961FC00B44486 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				702D03271929620900B44486 /* Table View */,
+				702D031519287E0B00B44486 /* Icon Images */,
+				70CF70591927BB4200608D68 /* Launch Images */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		702D03271929620900B44486 /* Table View */ = {
+			isa = PBXGroup;
+			children = (
+				702D03281929622400B44486 /* billSplitterTableView_640x1136.png */,
+				702D03291929622400B44486 /* billSplitterTableView_640x960.png */,
+			);
+			name = "Table View";
 			sourceTree = "<group>";
 		};
 		70B8B52218AC050A0043395D = {
 			isa = PBXGroup;
 			children = (
-				702D031519287E0B00B44486 /* Icon Images */,
-				70CF70591927BB4200608D68 /* Launch Images */,
+				702D0326192961FC00B44486 /* Images */,
 				70B8B53418AC050B0043395D /* BillSplitterRemastered */,
 				70B8B55318AC050C0043395D /* BillSplitterRemasteredTests */,
 				70B8B52D18AC050B0043395D /* Frameworks */,
@@ -298,9 +323,6 @@
 		70CF70591927BB4200608D68 /* Launch Images */ = {
 			isa = PBXGroup;
 			children = (
-				70CF70571927B93000608D68 /* Default-568h@2x.png */,
-				70CF705319267A1600608D68 /* billSplitter640x1136.png */,
-				70CF705419267A1600608D68 /* billSplitter640x960.png */,
 			);
 			name = "Launch Images";
 			sourceTree = "<group>";
@@ -384,12 +406,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				702D032B1929622400B44486 /* billSplitterTableView_640x960.png in Resources */,
+				702D03351929760F00B44486 /* star-128.png in Resources */,
 				70B8B54718AC050C0043395D /* Images.xcassets in Resources */,
-				70CF705519267A1600608D68 /* billSplitter640x1136.png in Resources */,
+				702D0331192972AA00B44486 /* personPayer1.png in Resources */,
 				70B8B53918AC050C0043395D /* InfoPlist.strings in Resources */,
+				702D0333192974FD00B44486 /* hot_dog-128.png in Resources */,
+				702D032A1929622400B44486 /* billSplitterTableView_640x1136.png in Resources */,
 				70B8B54218AC050C0043395D /* Main.storyboard in Resources */,
-				70CF705619267A1600608D68 /* billSplitter640x960.png in Resources */,
-				70CF70581927B93000608D68 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,7 +573,7 @@
 		70B8B55E18AC050C0043395D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -565,7 +589,7 @@
 		70B8B55F18AC050C0043395D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
