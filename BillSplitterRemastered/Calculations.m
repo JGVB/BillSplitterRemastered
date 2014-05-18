@@ -157,6 +157,7 @@
             [payer.payerObjectInfo addExtraApplied:(tempSub * ([percentDiscount doubleValue] / 100)) withKey:@"Percent Discount Applied"];
         }
         tempSub = tempSub - (tempSub * ([percentDiscount doubleValue] / 100));
+      
         payer.payerObjectInfo.total = tempSub;
         grandAfterDiscounts = grandAfterDiscounts + tempSub;
     }
@@ -172,6 +173,7 @@
         } else {
             [payer.payerObjectInfo addExtraApplied:(currentFlatPercentShareOfTotal * [tax doubleValue]) withKey:@"Tax Applied"];
         }
+
         double tempSub = payer.payerObjectInfo.total;
         tempSub = tempSub + (currentFlatPercentShareOfTotal * [tax doubleValue]);
         payer.payerObjectInfo.total = tempSub;
@@ -193,9 +195,9 @@
         double tempSub = payer.payerObjectInfo.total;
         double useAmount = 0;
         if([tipByWhat isEqualToString:@"tip_by_percent"] || tipByWhat == nil) {
-            tempSub = tempSub + (tempSub * ([tipAmount doubleValue]/100));
             useAmount = (tempSub * ([tipAmount doubleValue]/100));
-        } else {
+            tempSub = tempSub + (tempSub * ([tipAmount doubleValue]/100));
+        } else { //Tip by value calculations
             tempSub = tempSub + (currentFlatPercentShareOfTotal * [tipAmount doubleValue]);
             useAmount = (currentFlatPercentShareOfTotal * [tipAmount doubleValue]);
         }

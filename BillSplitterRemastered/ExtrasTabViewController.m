@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITableViewCell *cellTipByPercent;
 @property (weak, nonatomic) IBOutlet UITableViewCell *cellTipByValue;
 @property (weak, nonatomic) IBOutlet UILabel *lTipByQuestionMake;
+@property(strong, nonatomic, readwrite) NSMutableArray *errorsInEditing;
 
 @end
 
@@ -32,6 +33,8 @@
 @synthesize cellTipByPercent = _cellTipByPercent;
 @synthesize cellTipByValue = _cellTipByValue;
 @synthesize lTipByQuestionMake = _lTipByQuestionMake;
+@synthesize errorsInEditing = _errorsInEditing;
+
 
 
 /**
@@ -41,6 +44,7 @@
 {
     if(self = [super initWithCoder:aDecoder]){
         //Initialize
+        self.errorsInEditing = [[NSMutableArray alloc] init];
         self.extrasDataSource = [[NSMutableDictionary alloc] init];
         [self.extrasDataSource setObject:@"Unevenly" forKey:@"how_to_split"]; //This initially sets the bill to unevenly split because that is automatically selected by default when table is set.
     }
@@ -100,16 +104,23 @@
  * If all checks out, segue to TotalsDisplayViewController and calculate
  **/
 - (IBAction)bCalculateTotal:(id)sender {
-    //Extract data sources from ItemsTabViewController and PayersTabViewController
-    ItemsTabViewController *itvc = (ItemsTabViewController *)[[(UINavigationController *)[[self.tabBarController viewControllers] objectAtIndex:1] viewControllers] objectAtIndex:0];
-    PayersTabViewController *ptvc = (PayersTabViewController *)[[(UINavigationController *)[[self.tabBarController viewControllers] objectAtIndex:0] viewControllers] objectAtIndex:0];
+    //must force finish any text fields being edited when user clicks split button that way error checking is done before below error checking
+    [self.tfExtraCharges resignFirstResponder];
+
+    if([self.errorsInEditing count] == 0){//If there are no errors, don't segue, the finishedwithEditing will take care of error handling-just give it time
+        //Extract data sources from ItemsTabViewController and PayersTabViewController
+        ItemsTabViewController *itvc = (ItemsTabViewController *)[[(UINavigationController *)[[self.tabBarController viewControllers] objectAtIndex:1] viewControllers] objectAtIndex:0];
+        PayersTabViewController *ptvc = (PayersTabViewController *)[[(UINavigationController *)[[self.tabBarController viewControllers] objectAtIndex:0] viewControllers] objectAtIndex:0];
     
-    //Ensure that there are items, payers, and connections between
-    NSMutableArray *errors = [ErrorChecking readyToCalculate:itvc.itemDataSource andPayers:ptvc.payerDataSource andExtras:self.extrasDataSource];
-    if([errors count] > 0){ //Show error messages
-        [ErrorChecking showErrorMessage:errors];
-    } else { //no errors, send it!
-        [self performSegueWithIdentifier:@"calculate_from_extras_segue" sender:self];
+        //Ensure that there are items, payers, and connections between
+        NSMutableArray *errors = [ErrorChecking readyToCalculate:itvc.itemDataSource andPayers:ptvc.payerDataSource andExtras:self.extrasDataSource];
+        if([errors count] > 0){ //Show error messages
+            [ErrorChecking showErrorMessage:errors];
+        } else { //no errors, send it!
+            [self performSegueWithIdentifier:@"calculate_from_extras_segue" sender:self];
+        }
+    } else {
+        self.errorsInEditing = [[NSMutableArray alloc] init]; //Reset errors.
     }
 }
 
@@ -163,6 +174,7 @@
 **/
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {
+    self.errorsInEditing = [[NSMutableArray alloc] init]; //Reset erros
     NSString *textFieldPlaceholder = textField.placeholder;
     
     //Set default value
@@ -177,12 +189,13 @@
     if(![textField.text isEqualToString:@"0"]){ //Don't add extra if it's 0 (user clicks on extra and changes nothing or enters 0)
         //error check
         NSString *textFieldData = [textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-        NSMutableArray *errors = [ErrorChecking checkPositiveNonNegativeNonEmptyHasNonNumbers:textFieldData];
-        if([errors count] == 0){ //No errors, add data
+        self.errorsInEditing = [ErrorChecking checkPositiveNonNegativeNonEmptyHasNonNumbers:textFieldData];
+        if([self.errorsInEditing count] == 0){ //No errors, add data
             [self.extrasDataSource setObject:[ErrorChecking formatNumberTo2DecimalPlaces:textFieldData] forKey:textFieldPlaceholder];
         } else { //Error with input entered, display error message
             //Save information when user gets off of text field.
-            [ErrorChecking showErrorMessage:errors];
+            [ErrorChecking showErrorMessage:self.errorsInEditing];
+            //reset error count to 0
             textField.text = @"0";
         }
     } else { //if there is a value being stored in the extras Data source, remove it
