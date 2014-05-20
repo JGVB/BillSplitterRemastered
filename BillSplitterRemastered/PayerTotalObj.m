@@ -19,13 +19,7 @@
 
 -(id)init
 {
-    if(self = [super init]){
-        self.name = @"no name";
-        self.total = 0;
-        self.sharedItemsAndSplitNumber = [[NSMutableDictionary alloc] init];
-        self.listOfExtrasApplied = [[DisplayExtraHelper alloc] init];
-    }
-    return self;
+    return [self initWithName:@"no name"];
 }
 
 -(id)initWithName:(NSString *)nameIn

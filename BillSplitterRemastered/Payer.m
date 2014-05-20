@@ -16,22 +16,12 @@
 
 -(id)init
 {
-    if(self = [super init]){
-        self.name = @"NO NAME";
-        self.items = [[NSMutableArray alloc] init];
-        self.payerObjectInfo = [[PayerTotalObj alloc] initWithName:@"NO NAME"];
-    }
-    return self;
+    return [self initWithName:@"NO NAME" andItems:[[NSMutableArray alloc] init]];
 }
 
 -(id)initWithName:(NSString *)nameIn
 {
-    if(self = [super init]){
-        self.name = nameIn;
-        self.items = [[NSMutableArray alloc] init];
-        self.payerObjectInfo = [[PayerTotalObj alloc] initWithName:nameIn];
-    }
-    return self;
+    return [self initWithName:nameIn andItems:[[NSMutableArray alloc] init]];
 }
 
 -(id)initWithName:(NSString *)nameIn andItems:(NSMutableArray *)itemsIn

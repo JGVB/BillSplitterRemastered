@@ -16,22 +16,12 @@
 
 -(id)init
 {
-    if(self = [super init]){
-        self.name = @"No Name";
-        self.payers = [[NSMutableArray alloc] init];
-        self.cost = 0;
-    }
-    return self;
+    return [self initWithName:@"No Name" andCost:0 andPayers:[[NSMutableArray alloc] init]];
 }
 
 -(id)initWithName:(NSString *)nameIn andCost:(double)costIn;
 {
-    if(self = [super init]){
-        self.name = nameIn;
-        self.cost = costIn;
-        self.payers = [[NSMutableArray alloc] init];
-    }
-    return self;
+    return [self initWithName:nameIn andCost:costIn andPayers:[[NSMutableArray alloc] init]];
 }
 
 -(id)initWithName:(NSString *)nameIn andCost:(double)costIn andPayers:(NSMutableArray *)payersIn
