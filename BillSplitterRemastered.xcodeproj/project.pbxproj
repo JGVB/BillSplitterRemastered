@@ -16,6 +16,7 @@
 		702D03351929760F00B44486 /* star-128.png in Resources */ = {isa = PBXBuildFile; fileRef = 702D03341929760F00B44486 /* star-128.png */; };
 		7042F85619145047002B8606 /* Calculations.m in Sources */ = {isa = PBXBuildFile; fileRef = 7042F85519145047002B8606 /* Calculations.m */; };
 		7042F859191463A3002B8606 /* PayerTotalObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 7042F858191463A3002B8606 /* PayerTotalObj.m */; };
+		704D1BD2192D984800020A48 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 704D1BD1192D984800020A48 /* Default-568h@2x.png */; };
 		7067FD2019182816008AF412 /* PayerDetailsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7067FD1F19182816008AF412 /* PayerDetailsTableViewCell.m */; };
 		70AE157418AD42860061C096 /* Payer.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AE157318AD42860061C096 /* Payer.m */; };
 		70AE157718AD42900061C096 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AE157618AD42900061C096 /* Item.m */; };
@@ -45,8 +46,6 @@
 		70DE5B201929970300528829 /* billSplitterIcon_58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = 70DE5B1D1929970300528829 /* billSplitterIcon_58x58.png */; };
 		70DE5B211929970300528829 /* billSplitterIcon_80x80.png in Resources */ = {isa = PBXBuildFile; fileRef = 70DE5B1E1929970300528829 /* billSplitterIcon_80x80.png */; };
 		70DE5B221929970300528829 /* billSplitterIcon_120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = 70DE5B1F1929970300528829 /* billSplitterIcon_120x120.png */; };
-		70DE5B241929976D00528829 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70DE5B231929976D00528829 /* Default-568h@2x.png */; };
-		70DE5B26192998BB00528829 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70DE5B25192998BB00528829 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +72,7 @@
 		7042F85519145047002B8606 /* Calculations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Calculations.m; sourceTree = "<group>"; };
 		7042F857191463A3002B8606 /* PayerTotalObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayerTotalObj.h; sourceTree = "<group>"; };
 		7042F858191463A3002B8606 /* PayerTotalObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayerTotalObj.m; sourceTree = "<group>"; };
+		704D1BD1192D984800020A48 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		7067FD1E19182816008AF412 /* PayerDetailsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayerDetailsTableViewCell.h; sourceTree = "<group>"; };
 		7067FD1F19182816008AF412 /* PayerDetailsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayerDetailsTableViewCell.m; sourceTree = "<group>"; };
 		70AE157218AD42860061C096 /* Payer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Payer.h; sourceTree = "<group>"; };
@@ -119,8 +119,6 @@
 		70DE5B1D1929970300528829 /* billSplitterIcon_58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = billSplitterIcon_58x58.png; sourceTree = "<group>"; };
 		70DE5B1E1929970300528829 /* billSplitterIcon_80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = billSplitterIcon_80x80.png; sourceTree = "<group>"; };
 		70DE5B1F1929970300528829 /* billSplitterIcon_120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = billSplitterIcon_120x120.png; sourceTree = "<group>"; };
-		70DE5B231929976D00528829 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		70DE5B25192998BB00528829 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,7 +170,6 @@
 			children = (
 				702D03281929622400B44486 /* billSplitterTableView_640x1136.png */,
 				702D03291929622400B44486 /* Launch640x960.png */,
-				70DE5B25192998BB00528829 /* Default-568h@2x.png */,
 			);
 			name = "Table View";
 			sourceTree = "<group>";
@@ -180,7 +177,7 @@
 		70B8B52218AC050A0043395D = {
 			isa = PBXGroup;
 			children = (
-				70DE5B231929976D00528829 /* Default-568h@2x.png */,
+				704D1BD1192D984800020A48 /* Default-568h@2x.png */,
 				702D0326192961FC00B44486 /* Images */,
 				70B8B53418AC050B0043395D /* BillSplitterRemastered */,
 				70B8B55318AC050C0043395D /* BillSplitterRemasteredTests */,
@@ -423,11 +420,10 @@
 			files = (
 				70DE5B201929970300528829 /* billSplitterIcon_58x58.png in Resources */,
 				702D032B1929622400B44486 /* Launch640x960.png in Resources */,
-				70DE5B26192998BB00528829 /* Default-568h@2x.png in Resources */,
 				702D03351929760F00B44486 /* star-128.png in Resources */,
 				70DE5B221929970300528829 /* billSplitterIcon_120x120.png in Resources */,
 				70DE5B211929970300528829 /* billSplitterIcon_80x80.png in Resources */,
-				70DE5B241929976D00528829 /* Default-568h@2x.png in Resources */,
+				704D1BD2192D984800020A48 /* Default-568h@2x.png in Resources */,
 				70B8B54718AC050C0043395D /* Images.xcassets in Resources */,
 				702D0331192972AA00B44486 /* personPayer1.png in Resources */,
 				70B8B53918AC050C0043395D /* InfoPlist.strings in Resources */,
