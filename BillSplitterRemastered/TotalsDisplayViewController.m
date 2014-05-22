@@ -60,8 +60,6 @@
     //Reset PTO so values don't carry over
     [Calculations clearPayerObjects:self.payersDataSource];
     
-    NSLog(@"how to split: %@", [self.extrasDataSource objectForKey:@"how_to_split"]);
-    
     if([[self.extrasDataSource objectForKey:@"how_to_split"] isEqualToString:@"Unevenly"]|| [self.extrasDataSource objectForKey:@"how_to_split"] == nil){ //By default, bill is split unevenly
         payerTotalObjects = [Calculations performCalculationsWithPayersSplitUnevenly:self.payersDataSource andItems:self.itemsDataSource andExtras:self.extrasDataSource]; //Returns an array, index 0 - array of updated payer objects after calculations.  index 1 - Grand total to display in tableView
     } else { //user wants the bill split equally between all payers
@@ -69,8 +67,7 @@
     }
     self.payersDataSource = [payerTotalObjects objectAtIndex:0]; //gets the payers.
     double gt =[[payerTotalObjects objectAtIndex:1] doubleValue]; //Get grand total
-    NSString *gtString = [ErrorChecking formatNumberTo2DecimalPlaces:[NSString stringWithFormat:@"%f", gt]];
-    self.grandTotal = [NSString stringWithFormat:@"$%@",gtString];
+    self.grandTotal = [ErrorChecking formatNumberTo2DecimalPlaces:[NSString stringWithFormat:@"%f", gt]];
     [self.tableView reloadData]; //After payers are updated, reload tableview. Precaution
     
     //Tableview background image
@@ -82,7 +79,6 @@
     else
     {
         tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"billSplitterTableView_640x960.png"]];
-
     }
     [tempImageView setFrame:self.tableView.frame];
     self.tableView.backgroundView = tempImageView;
@@ -166,10 +162,10 @@
         cell.detailTextLabel.text = [@"$" stringByAppendingString:totalString];
     } else if(indexPath.section == 1){ //section 1 is grand total section below all payers and their totals.
         //Make no clicking on grand total cell
-        cell.accessoryType = UITableViewCellAccessoryNone; //no arrow on right side signifying not to click on this cell
-        cell.userInteractionEnabled = NO;//disable cell
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        cell.userInteractionEnabled = NO;
         cell.textLabel.text = @"Grand Total";
-        cell.detailTextLabel.text = self.grandTotal;
+        cell.detailTextLabel.text = [@"$" stringByAppendingString:self.grandTotal];
     } else {
         //only 2 sections
     }
@@ -197,7 +193,6 @@
     if([segue.identifier isEqualToString:@"payer_details_segue"]){ //segue into PayersDetailsDisplayViewController
         PayersDetailsDisplayViewController *pddvc = (PayersDetailsDisplayViewController *)segue.destinationViewController;
         pddvc.selectedPayerTotal = self.selectedPayer;//Sets the selected payer
-        
     }
 }
 
@@ -206,9 +201,9 @@
 **/
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //If a payer is selected, send that payer object
     self.selectedPayer = [self.payersDataSource objectAtIndex:indexPath.row]; //Sets selected payer to send in segue
     [self performSegueWithIdentifier:@"payer_details_segue" sender:self]; //Segue into PayersDetailsDisplayViewController
-
 }
 
 @end

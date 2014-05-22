@@ -22,6 +22,10 @@
 //set splash screen(jonathan)
 //set icon (jonathan)
 
+//GPS tax rate
+
+//Add total features. When you click grand total. displays grand: 1) Extra Charges  2)Flat discount  3) Percent discount  4) Tax  5) tip
+
 #import <UIKit/UIKit.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>

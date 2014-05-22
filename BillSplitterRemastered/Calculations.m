@@ -229,6 +229,4 @@
     return  [NSNumber numberWithDouble:grandafterTip];
 }
 
-
-
 @end
