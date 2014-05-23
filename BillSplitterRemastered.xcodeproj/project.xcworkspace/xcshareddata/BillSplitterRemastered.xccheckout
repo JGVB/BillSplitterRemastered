@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>CA906003-8F6B-49C9-AAB9-422D3F5E4C26</string>
+	<key>IDESourceControlProjectName</key>
+	<string>BillSplitterRemastered</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>60DD5BE4-C389-4CFB-B975-62604311D3F9</key>
+		<string>https://github.com/Jvanbev/BillSplitterRemastered.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>BillSplitterRemastered.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>60DD5BE4-C389-4CFB-B975-62604311D3F9</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Jvanbev/BillSplitterRemastered.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>60DD5BE4-C389-4CFB-B975-62604311D3F9</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>60DD5BE4-C389-4CFB-B975-62604311D3F9</string>
+			<key>IDESourceControlWCCName</key>
+			<string>BillSplitterRemastered</string>
+		</dict>
+	</array>
+</dict>
+</plist>
