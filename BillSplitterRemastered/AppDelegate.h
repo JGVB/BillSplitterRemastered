@@ -19,12 +19,15 @@
 //locales?
 //remember users(show up while typing?)
 //Instruction page - maybe put it on the splash or menu? - put in own tab
+//Everything cut off on 4 inch
+//Save all input entered and display when they start to type it in?
 
 //set splash screen(jonathan)
 //set icon (jonathan)
 
 //Drag selected area of image(picture of bill), and input the items
-//GPS tax rate
+
+//Fix tip display.  custom section header views? new tableview layout?
 
 #import <UIKit/UIKit.h>
 

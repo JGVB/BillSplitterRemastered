@@ -15,6 +15,7 @@
 @property(nonatomic, strong, readwrite)NSMutableArray *signOfExtra;
 
 -(void)addObject:(double)objectIn withName:(NSString *)nameIn withSign:(NSString *)signIn;
+-(double)getPayerTip;
 -(NSNumber *)objectAtIndex:(NSInteger)indexIn;
 -(NSString *)nameAtIndex:(NSInteger)indexIn;
 -(NSString *)signAtIndex:(NSInteger)indexIn;

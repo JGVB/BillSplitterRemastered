@@ -49,7 +49,6 @@
     else
     {
         tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"billSplitterTableView_640x960.png"]];
-        
     }
     [tempImageView setFrame:self.tableView.frame];
     self.tableView.backgroundView = tempImageView;

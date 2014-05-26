@@ -46,6 +46,8 @@
 		70DE5B201929970300528829 /* billSplitterIcon_58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = 70DE5B1D1929970300528829 /* billSplitterIcon_58x58.png */; };
 		70DE5B211929970300528829 /* billSplitterIcon_80x80.png in Resources */ = {isa = PBXBuildFile; fileRef = 70DE5B1E1929970300528829 /* billSplitterIcon_80x80.png */; };
 		70DE5B221929970300528829 /* billSplitterIcon_120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = 70DE5B1F1929970300528829 /* billSplitterIcon_120x120.png */; };
+		70FFE81C1932F4CB008D62C6 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70FFE81B1932F4CB008D62C6 /* AddressBookUI.framework */; };
+		70FFE81E1932F531008D62C6 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70FFE81D1932F531008D62C6 /* AddressBook.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +121,8 @@
 		70DE5B1D1929970300528829 /* billSplitterIcon_58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = billSplitterIcon_58x58.png; sourceTree = "<group>"; };
 		70DE5B1E1929970300528829 /* billSplitterIcon_80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = billSplitterIcon_80x80.png; sourceTree = "<group>"; };
 		70DE5B1F1929970300528829 /* billSplitterIcon_120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = billSplitterIcon_120x120.png; sourceTree = "<group>"; };
+		70FFE81B1932F4CB008D62C6 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		70FFE81D1932F531008D62C6 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +130,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70FFE81E1932F531008D62C6 /* AddressBook.framework in Frameworks */,
+				70FFE81C1932F4CB008D62C6 /* AddressBookUI.framework in Frameworks */,
 				70B8B53118AC050B0043395D /* CoreGraphics.framework in Frameworks */,
 				70B8B53318AC050B0043395D /* UIKit.framework in Frameworks */,
 				70B8B52F18AC050B0043395D /* Foundation.framework in Frameworks */,
@@ -198,6 +204,8 @@
 		70B8B52D18AC050B0043395D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				70FFE81D1932F531008D62C6 /* AddressBook.framework */,
+				70FFE81B1932F4CB008D62C6 /* AddressBookUI.framework */,
 				70B8B52E18AC050B0043395D /* Foundation.framework */,
 				70B8B53018AC050B0043395D /* CoreGraphics.framework */,
 				70B8B53218AC050B0043395D /* UIKit.framework */,

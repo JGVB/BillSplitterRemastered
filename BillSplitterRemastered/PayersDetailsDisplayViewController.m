@@ -18,7 +18,6 @@
 
 @synthesize selectedPayerTotal = _selectedPayerTotal;
 
-
 /**
  * initWithCoder: Returns an object initialized from data in a given unarchiver
  **/
@@ -35,6 +34,8 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
     //Tableview background image
     UIImageView *tempImageView;
     if ([[UIScreen mainScreen] bounds].size.height == 568)
@@ -49,6 +50,7 @@
     self.tableView.backgroundView = tempImageView;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero]; //Get rid of footer so lines don't appear on tableview
 }
+
 
 #pragma mark - Table view data source
 
@@ -101,8 +103,10 @@
         case 2: //Subtotal and extras section
             sectionName = [NSString stringWithFormat:@"Subtotal: $%@", [ErrorChecking formatNumberTo2DecimalPlaces:[NSString stringWithFormat:@"%f",self.selectedPayerTotal.payerObjectInfo.subtotal]]];
             break;
-        case 3: //Total section
-            sectionName = [NSString stringWithFormat:@"Total: $%@", [ErrorChecking formatNumberTo2DecimalPlaces:[NSString stringWithFormat:@"%f", self.selectedPayerTotal.payerObjectInfo.total]]];
+        case 3: //Total section: Will add tip for pre tip total if tip exists
+            sectionName = ([self.selectedPayerTotal.payerObjectInfo.listOfExtrasApplied getPayerTip] != -1) ?
+            [[@"Pre Tip Total: $" stringByAppendingString:[ErrorChecking formatNumberTo2DecimalPlaces:[NSString stringWithFormat:@"%f", (self.selectedPayerTotal.payerObjectInfo.total - [self.selectedPayerTotal.payerObjectInfo.listOfExtrasApplied getPayerTip])]]] stringByAppendingString:[NSString stringWithFormat:@" --- Total: $%@", [ErrorChecking formatNumberTo2DecimalPlaces:[NSString stringWithFormat:@"%f", self.selectedPayerTotal.payerObjectInfo.total]]]] :
+            [NSString stringWithFormat:@"Total: $%@", [ErrorChecking formatNumberTo2DecimalPlaces:[NSString stringWithFormat:@"%f", self.selectedPayerTotal.payerObjectInfo.total]]];
             break;
         default: //else
             sectionName = @"";

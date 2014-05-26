@@ -14,8 +14,9 @@
 #import "ErrorChecking.h"
 #import "SelectPayersItemsViewController.h"
 #import "ExtrasTabViewController.h"
+#import <AddressBookUI/AddressBookUI.h>
 
-@interface PayersTabViewController : UITableViewController <UITextFieldDelegate>
+@interface PayersTabViewController : UITableViewController <UITextFieldDelegate, ABPeoplePickerNavigationControllerDelegate>
 
 @property(nonatomic, strong, readwrite) NSMutableArray *payerDataSource; //Data source for tableView. Contains Payers added by user.
 

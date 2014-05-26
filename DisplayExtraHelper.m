@@ -68,4 +68,23 @@
 {
     return [self.objectExtra count];
 }
+
+/**
+ * getPayerTip: This function will return the double valiue of the tip extra if there is, otherwise will return -1
+ **/
+-(double)getPayerTip
+{
+    //find tip
+    double tipVal = -1;
+    int x = 0;
+    for(NSString * name in self.nameOfExtra){
+        if([name isEqualToString:@"Tip Applied"]){
+            tipVal = [[self.objectExtra objectAtIndex:x] doubleValue];
+        }
+        x++;
+    }
+    return tipVal;
+    
+}
+
 @end

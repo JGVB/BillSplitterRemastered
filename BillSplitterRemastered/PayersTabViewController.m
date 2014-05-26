@@ -35,7 +35,9 @@
 }
 
 /**
- * viewDidLoad: Called after the controller’s view is loaded into memory.
+ * viewDidLoad: Called after the controller’s view is loaded into memory. 
+ * Main points: Add gesture that dismisses keyboard
+ * Set background of tableview
  **/
 - (void)viewDidLoad
 {
@@ -76,6 +78,31 @@
     }
     
     [self.tableView reloadData]; //Reload selected cell when returned from Selecting a payer's items - refreshes the item count in detail label
+}
+
+- (IBAction)bAddFromContacts:(id)sender
+{
+    if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusDenied ||
+        ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusRestricted){
+        //1
+        UIAlertView *cantAddContactAlert = [[UIAlertView alloc] initWithTitle: @"Cannot Add Contact" message: @"You must give the app permission to add the contact first." delegate:nil cancelButtonTitle: @"OK" otherButtonTitles: nil];
+        [cantAddContactAlert show];
+    } else if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusAuthorized){
+        //2
+    } else{ //ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusNotDetermined
+        ABAddressBookRequestAccessWithCompletion(ABAddressBookCreateWithOptions(NULL, nil), ^(bool granted, CFErrorRef error) {
+            if (!granted){
+                UIAlertView *cantAddContactAlert = [[UIAlertView alloc] initWithTitle: @"Cannot Add Contact" message: @"You must give the app permission to add the contact first." delegate:nil cancelButtonTitle: @"OK" otherButtonTitles: nil];
+                [cantAddContactAlert show];
+                return;
+            }
+        });
+    }
+    
+    
+    
+
+    
 }
 
 /**
@@ -253,5 +280,27 @@
     }   
 }
 
+
+#pragma contact Delegates
+
+- (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+- (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person
+{
+    NSString *name = (__bridge NSString *)ABRecordCopyCompositeName(person);
+    // do something with name.. and release
+    
+    [self dismissModalViewControllerAnimated:YES];
+    
+    return NO;
+}
+
+- (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier
+{
+    return NO;
+}
 
 @end
